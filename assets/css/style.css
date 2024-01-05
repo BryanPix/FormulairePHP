@@ -1,0 +1,11 @@
+h1{
+    text-align: center;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-weight: normal;
+}
+
+footer {
+    text-align: center;
+    align-items: flex-end;
+}
