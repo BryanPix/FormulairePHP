@@ -1,2 +1,2 @@
-<p>&copy; 2024 Company, Inc</p>
+<p>&copy; 2024 Compagnie, Inc</p>
 

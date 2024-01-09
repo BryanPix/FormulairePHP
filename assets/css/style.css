@@ -1,46 +1,84 @@
-body{
-    font-family: sans-serif;
+body {
+  font-family: sans-serif;
 }
-h1{
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: normal;
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: normal;
 }
 
 /* Formulaire */
-label{
-    display: block;
-    margin: 5px;
+label {
+  display: block;
+  margin: 5px;
 }
-.btn-signup{
-    border: 2px solid lightgray;
-    background-color: white;
-    color: gray;
-    border-radius: 5px;
-    padding: 8px 10px;
-    margin: 2px;
-    cursor: pointer;
-}
-.btn-signup:hover{
-    background-color: lightgray;
-    color: black;
+.btn-signup {
+  border: 2px solid lightgray;
+  background-color: white;
+  color: gray;
+  border-radius: 5px;
+  padding: 8px 10px;
+  margin: 7px;
+  cursor: pointer;
+  display: block;
 }
 
-.divFormulaire{
-    border-radius: 3px;
-    width: fit-content;    
-    position: relative;   
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%); 
-    margin-bottom: 2rem;
-    padding: 1rem 7rem 2rem 1rem;
-    box-shadow: 1px 8px 14px 7px rgba(0,0,0,0.15);
+.btn-signup:hover {
+  background-color: lightgray;
+  color: black;
 }
 
+.redInput{
+   color: red;
+}
+.divFormulaire {
+  border-radius: 3px;
+  width: fit-content;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  margin-bottom: 2rem;
+  padding: 1rem 7rem 2rem 1rem;
+  box-shadow: 1px 8px 14px 7px rgba(0, 0, 0, 0.15);
+}
+.inputField {
+  border: 2px solid;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin: 0.25rem;
+  min-width: 125px;
+  padding: 0.5rem;
+  transition: border-color 0.5s ease-out;
+}
+.inputField:optional {
+  border-color: gray;
+}
+.inputField:required:valid {
+  border-color: green;
+}
+.inputField:required:invalid {
+  border-color: red;
+}
+.inputField:required:focus:valid:not(#birthdate) {
+  background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg")
+    no-repeat 95% 50% lightgreen;
+  background-size: 25px;
+}
+.inputField:focus:invalid:not(#birthdate) {
+  background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg")
+    no-repeat 95% 50% lightsalmon;
+  background-size: 25px;
+}
 
+.inputConfirm{
+    margin-bottom: 1.5rem;
+}
+.cgu{
+    padding-top: 1rem;
+}
 /* Footer */
 footer {
-    text-align: center;
-    align-items: flex-end;
+  text-align: center;
+  align-items: flex-end;
 }
