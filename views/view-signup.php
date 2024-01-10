@@ -1,7 +1,7 @@
 <?php
 require_once "../controllers/controller-signup.php"
 
-?>
+    ?>
 <!DOCTYPE html>
 <html lang="fr">
 <?php
@@ -14,69 +14,61 @@ include 'templates/head.php';
     <div class="divFormulaire">
         <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" novalidate>
             <label for="nom">Nom<sup class="star">*</sup> :
-                <input class="inputField" type="text" id="nom" name="nom" size="20" placeholder="Ex:Doe"
-                    value="<?php if (!empty($name)) {
-                        echo $name;
-                    } ?>" required>
-                    <span class="redInput">
-                        <?php if (empty($name)) {
-                        echo "Veuillez renseigner votre nom ! ";} ?>
-                    </span>
+                <input class="inputField" type="text" id="nom" name="nom" size="20" placeholder="Ex:Doe" value="<?php if (!empty($name)) {
+                    echo $name;
+                } ?>"required>
+                <span class="redInput spanNom">
+                <?= isset( $errors["spanNom"])? $errors["spanNom"]:""?>
+                </span>
             </label>
-            <label for="prenom" >Prénom<sup class="star">*</sup> :
-                <input class="inputField" type="text" id="prenom" name="prenom" size="20" placeholder="Ex:John"
-                    value="<?php if (!empty($prenom)) {
-                        echo $prenom;
-                        
-                    } ?>" required>
-                    <span class="redInput">
-                        <?php if (empty($prenom)) {
-                        echo "Veuillez renseigner votre prenom ! ";} ?>
-                    </span>
+            <label for="prenom">Prénom<sup class="star">*</sup> :
+                <input class="inputField" type="text" id="prenom" name="prenom" size="20" placeholder="Ex:John" value="<?php if (!empty($prenom)) {
+                    echo $prenom;
+
+                } ?>" required>
+                <span class="redInput spanPrenom">
+                    <?= isset( $errors["spanPrenom"])? $errors["spanPrenom"]:""?>
+                </span>
             </label>
-            <label for="birthdate" >Date de naissance<sup class="star">*</sup> :
-                <input class="inputField" type="date" id="birthdate" name="birthdate" 
-                    value="<?php if (!empty($birthdate)) {
-                        echo $birthdate;
-                    } ?>" required>
-                    <span class="redInput">
-                        <?php if (empty($birthdate)) {
-                        echo "Veuillez renseigner votre date de naissance ! ";} ?>
-                    </span>
+            <label for="birthdate">Date de naissance<sup class="star">*</sup> :
+                <input class="inputField" type="date" id="birthdate" name="birthdate" value="<?php if (!empty($birthdate)) {
+                    echo $birthdate;
+                } ?>" required>
+                <span class="redInput spanBirthdate">
+                <?= isset( $errors["spanBirthdate"])? $errors["spanBirthdate"]:""?>
+
+                </span>
             </label>
-            <label for="mail" >Adresse mail<sup class="star">*</sup> :
+            <label for="mail">Adresse mail<sup class="star">*</sup> :
                 <input class="inputField" type="text" id="mail" name="mail" size="25" placeholder="Ex:JohnDoe@gmail.com"
-                    value="<?php if (!empty($mail )) {
+                    value="<?php if (!empty($mail)) {
                         echo $mail;
                     } ?>" required>
-                    <span class="redInput"> 
-                        <?php if (empty($mail)) {
-                        echo "Veuillez renseigner votre adresse mail ! ";} ?>
-                    </span>
+                <span class="redInput spanEmail">
+                <?= isset( $errors["spanEmail"])? $errors["spanEmail"]:""?>
+                </span>
             </label>
             <label for="password">Mot de passe<sup class="star">*</sup> :
                 <input class="inputField" type="password" id="password" name="password" size="20" required>
-                <span class="redInput">
-                        <?php if (empty($password)) {
-                        echo "Veuillez renseigner votre mot de passe ! ";} ?>
-                    </span>
+                <span class="redInput spanPassword">
+                <?= isset( $errors["spanPassword"])? $errors["spanPassword"]:""?>
+
+                </span>
             </label>
             <label for="confirmPass" class="inputConfirm">Confirmation du mot de passe<sup class="star">*</sup> :
                 <input class="inputField" type="password" id="confirmPass" name="confirmPass" size="20" required>
-                <span class="redInput">
-                        <?php if (empty($confirmPass)) {
-                        echo "Veuillez confirmer votre mot de passe ! ";} ?>
-                    </span>
+                <span class="redInput spanConfirm">
+                    
+                </span>
             </label>
             <label for="cgu">
                 <input type="checkbox" id="cgu" name="cgu" required>
-                <span>Pour vous inscrire, veuillez accepter les cgu !</span>
-                <span class="redInput">
-                        <?php if (empty($cgu)) {
-                        echo "Veuillez accepter les cgu ! ";} ?>
-                    </span>
-                </label>
-                    <input class="btn-signup" type="submit" value="S'enregistrer">
+                <span>Pour vous inscrire, veuillez accepter les CGU !</span>
+                <span class="redInput spanCgu">
+                <?= isset( $errors["spanCgu"])? $errors["spanCgu"]:""?>
+                </span>
+            </label>
+            <input class="btn-signup" type="submit" value="S'enregistrer">
 
             <p><sup class="redInput">*</sup> Requis</p>
         </form>

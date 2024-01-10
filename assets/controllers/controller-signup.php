@@ -1,14 +1,94 @@
-<?php 
-    require_once "../../views/view-signup.php";
-    if ($_SERVER["REQUEST_METHOD"] == "POST") { // Si le bouton post a été cliquer effectue la verification
-        // $errors = array();
-        // $mailRegex = "^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$";
-        $name = $_POST['nom'];
-        $prenom = $_POST['prenom'];
-        $birthdate = $_POST['birthdate'];
-        $mail = $_POST['mail'];
-        $password = $_POST['password'];
-        $confirmPass = $_POST['confirmPass'];
-        $cgu = $_POST['cgu'];
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") { // Si le bouton post a été cliquer effectue la verification
+
+    $name = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $birthdate = $_POST['birthdate'];
+    $mail = $_POST['mail'];
+    $password = $_POST['password'];
+    $confirmPass = $_POST['confirmPass'];
+    $errors = array();
+
+    // Contrôle du nom
+    if (empty($_POST['nom'])) {
+        $errors["spanNom"] = "Le champ Nom ne peut pas être vide";
+    } elseif (!preg_match("/^[a-zA-ZÀ-ÿ -]*$/", $_POST["nom"])) {
+        $errors["spanNom"] = "Seules les lettres, les espaces et les tirets sont autorisés dans le champ Nom";
     }
+
+    // Contrôle du prénom
+    if (empty($_POST["prenom"])) {
+        $errors["spanPrenom"] = "Le champ Prénom ne peut pas être vide";
+    } elseif (!preg_match("/^[a-zA-ZÀ-ÿ -]*$/", $_POST["prenom"])) {
+        $errors["spanPrenom"] = "Seules les lettres, les espaces et les tirets sont autorisés dans le champ Prénom";
+    }
+
+    // Contrôle de la date de naissance
+    if (empty($_POST['birthdate'])) {
+        $errors["birthdate"] = "Le champ Date de naissance ne peut pas être vide";
+    }
+
+    // Contrôle de l'email
+    if (empty($_POST['mail'])) {
+        $errors["spanEmail"] = "Le champ mail ne peut pas être vide";
+    } elseif (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
+        $errors["spanEmail"] = "Le format de l'adresse email n'est pas valide";
+    }
+
+    // Contrôle du mot de passe
+    if (empty($_POST['password'])) {
+        $errors["spanPassword"] = "Le champ Mot de passe ne peut pas être vide";
+    } elseif (strlen($_POST['password']) < 8) {
+        $errors["spanPassword"] = "Le mot de passe doit contenir au moins 8 caractères";
+    }
+    // Contrôle de la confirmation du mot de passe
+    if ($_POST['password'] !== $_POST['confirmPass']) {
+        $errors["spanConfirm"] = "Les mots de passe ne correspondent pas";
+    }
+
+    // Contrôle des CGU
+    if (empty($_POST["cgu"]) || $_POST["cgu"] !== "on") {
+        $errors["cgu"] = "Veuillez accepter les conditions générales d'utilisation pour continuer.";
+    }
+
+    // Si aucune erreur, traiter les données et soumettre le formulaire
+    if (empty($errors)) {
+
+        // VERIFICATION si les CGU sont acceptées
+        $cguAccepted = isset($_POST["cgu"]) && $_POST["cgu"] === "on";
+
+        if ($cguAccepted) {
+
+            $name = $_POST['nom'];
+            $prenom = $_POST['prenom'];
+            $birthdate = $_POST['birthdate'];
+            $mail = $_POST['mail'];
+            $password = $_POST['password'];
+            $confirmPass = $_POST['confirmPass'];
+            $errors = array();
+            $cgu = $_POST["cgu"];
+
+            echo '<div class="divFormulaire">';
+            echo "<h2>Inscription réussie</h2>";
+            echo "<h3>Données soumises :</h3>";
+            echo "<p>Nom : " . $name . "</p>";
+            echo "<p>Prénom : " . $prenom . "</p>";
+            echo "<p>Date de naissance : " . $birthdate . "</p>";
+            echo "<p>Email : " . $mail . "</p>";
+            echo "<p>Mot de passe reçu</p>";
+            echo '<p><strong><em>Vous pouvez maintenant vous connecter.</em></strong></p>';
+            echo '<button class="button" style="background-color: #28a745; color: #fff; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer;">Connexion</button>';
+            echo '</div>';
+        }
+    } else {
+        // Si les CGU ne sont pas acceptées, ajoute une erreur spécifique pour les CGU
+        $errors["spanCgu"] = "Veuillez accepter les conditions générales d'utilisation pour continuer.";
+    }
+}
+
+// AFFICHER le formulaire si il est vide et ne l'affiche pas quand il est soumis
+if ($_SERVER["REQUEST_METHOD"] != "POST" || !empty($errors)) {
+    include_once '../../views/view-signup.php';
+}
+
 ?>

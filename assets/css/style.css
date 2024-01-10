@@ -28,8 +28,8 @@ label {
   color: black;
 }
 
-.redInput{
-   color: red;
+.redInput {
+  color: red;
 }
 .divFormulaire {
   border-radius: 3px;
@@ -54,29 +54,36 @@ label {
 .inputField:optional {
   border-color: gray;
 }
-.inputField:required:valid {
-  border-color: green;
-}
-.inputField:required:invalid {
+.inputField:invalid {
   border-color: red;
 }
-.inputField:required:focus:valid:not(#birthdate) {
+.inputField:valid {
+  border-color: green;
+}
+.inputField:valid:not(#birthdate) {
   background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg")
     no-repeat 95% 50% lightgreen;
   background-size: 25px;
 }
-.inputField:focus:invalid:not(#birthdate) {
+.inputField:invalid:not(#birthdate) {
   background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg")
     no-repeat 95% 50% lightsalmon;
   background-size: 25px;
 }
+#birthdate:valid {
+  background-color: lightgreen;
+}
+#birthdate:invalid {
+  background-color: lightsalmon;
+}
 
-.inputConfirm{
-    margin-bottom: 1.5rem;
+.inputConfirm {
+  margin-bottom: 1.5rem;
 }
-.cgu{
-    padding-top: 1rem;
+.cgu {
+  padding-top: 1rem;
 }
+
 /* Footer */
 footer {
   text-align: center;
