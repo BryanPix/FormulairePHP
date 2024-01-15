@@ -30,13 +30,27 @@ include 'templates/head.php';
                     <?= isset( $errors["spanPrenom"])? $errors["spanPrenom"]:""?>
                 </span>
             </label>
+            <label for="pseudo">Pseudo<sup class="star">*</sup> :
+                <input class="inputField" type="text" id="pseudo" name="pseudo" size="20" placeholder="Baobab" value="<?php if (!empty($pseudo)) {
+                    echo $pseudo;
+                } ?>" required>
+                <span class="redInput spanPseudo">
+                    <?= isset( $errors["spanPseudo"])? $errors["spanPseudo"]:""?>
+                </span>
+            </label>
+            <label for="entreprise">Entreprise<sup class="star">*</sup> :
+            <select name="entreprise" id="entreprise" class="selectField" >
+                <option value="">-- Veuillez choisir une option --</option>
+                <option value="1" <?= isset( $_POST["entreprise"])&& $_POST["entreprise"]==1 ? 'selected': ""?>>LunaTech Solutions</option>
+                <option value="2" <?= isset( $_POST["entreprise"])&& $_POST["entreprise"]==2 ? 'selected': ""?>>Phoenix Consulting and Design</option>
+            </select>
+            </label>
             <label for="birthdate">Date de naissance<sup class="star">*</sup> :
                 <input class="inputField" type="date" id="birthdate" name="birthdate" value="<?php if (!empty($birthdate)) {
                     echo $birthdate;
                 } ?>" required>
                 <span class="redInput spanBirthdate">
                 <?= isset( $errors["spanBirthdate"])? $errors["spanBirthdate"]:""?>
-
                 </span>
             </label>
             <label for="mail">Adresse mail<sup class="star">*</sup> :
@@ -58,7 +72,8 @@ include 'templates/head.php';
             <label for="confirmPass" class="inputConfirm">Confirmation du mot de passe<sup class="star">*</sup> :
                 <input class="inputField" type="password" id="confirmPass" name="confirmPass" size="20" required>
                 <span class="redInput spanConfirm">
-                    
+                <?= isset( $errors["spanConfirm"])? $errors["spanConfirm"]:""?>
+
                 </span>
             </label>
             <label for="cgu">

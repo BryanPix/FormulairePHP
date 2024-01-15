@@ -42,7 +42,7 @@ label {
   padding: 1rem 7rem 2rem 1rem;
   box-shadow: 1px 8px 14px 7px rgba(0, 0, 0, 0.15);
 }
-.inputField {
+.inputField .selectField {
   border: 2px solid;
   border-radius: 4px;
   font-size: 1rem;
@@ -50,19 +50,29 @@ label {
   min-width: 125px;
   padding: 0.5rem;
   transition: border-color 0.5s ease-out;
+  background-size: 25px;
 }
+
 .inputField:optional {
   border-color: gray;
 }
+
 .inputField:invalid {
   border-color: red;
 }
 .inputField:valid {
   border-color: green;
 }
+.selectField:valid {
+  border-color: green;
+}
 .inputField:valid:not(#birthdate) {
   background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg")
     no-repeat 95% 50% lightgreen;
+  background-size: 25px;
+}
+.selectField:valid{
+  background: lightgreen;
   background-size: 25px;
 }
 .inputField:invalid:not(#birthdate) {
