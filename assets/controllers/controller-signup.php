@@ -1,5 +1,5 @@
 <?php
-require_once '../views/config.php';
+require_once '../../config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") { // Si le bouton post a été cliquer effectue la verification
 
@@ -7,11 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Si le bouton post a été cliquer
     $prenom = htmlspecialchars($_POST['prenom']);
     $birthdate = $_POST['birthdate'];
     $pseudo =  htmlspecialchars($_POST['pseudo']);
-    $mail = $_POST['mail'];
-    $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
+    $mail = $_POST['mail'];    
     $confirmPass = $_POST['confirmPass'];
-    // $valid = $_POST['valid_utilisateur'];
-    // $ID = $_POST['ID_Entreprise'];
     $errors = array();
 
     // Contrôle du nom
@@ -61,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Si le bouton post a été cliquer
     if (!isset($_POST['cgu'])){
         $errors["cgu"] = "Veuillez accepter les conditions générales d'utilisation pour continuer.";
     }
-
+    var_dump($errors);	
     // Si aucune erreur, traiter les données et soumettre le formulaire
     if (empty($errors)) {
 
@@ -109,11 +106,11 @@ try{
     // Connextion à la bdd
     $db = new PDO("mysql:host=localhost;dbname=" . DBNAME, DBUSER, DBPASSWORD);
     // stockage de la requete dans une variable
-    $sql = "INSERT INTO `utilisateur` (`lastname_utilisateur`,`firstname_utilisateur`,`nickname_utilisateur`,`birthdate_utilisateur`,`email_utilisateur`,`password_utilisateur`, `ID_Entreprise`, `valid_utilisateur`) VALUES(:lastname_utilisateur, :firstname_utilisateur, :nickname_utilisateur, :birthdate_utilisateur, :email_utilisateur, :password_utilisateur, :ID_Entreprise, :valid_utilisateur)";
+    $sql = "INSERT INTO `utilisateur` (`lastname_utilisateur`,`firstname_utilisateur`,`nickname_utilisateur`,`birthdate_utilisateur`,`email_utilisateur`,`password_utilisateur`, `ID_Entreprise`) VALUES(:lastname_utilisateur, :firstname_utilisateur, :nickname_utilisateur, :birthdate_utilisateur, :email_utilisateur, :password_utilisateur, :ID_Entreprise)";
 
-    // pour eviter les injections sql
     $query = $db->prepare($sql);
-    $enterprise = $_POST['enterprise'];
+    $enterprise = $_POST['entreprise'];
+    $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
 
     // on relie les valeurs à nos marqueurs à l'aide d'un bindValue
     $query->bindValue(':lastname_utilisateur', $name, PDO::PARAM_STR);
@@ -122,12 +119,11 @@ try{
     $query->bindValue(':birthdate_utilisateur', $birthdate, PDO::PARAM_STR);
     $query->bindValue(':email_utilisateur', $mail, PDO::PARAM_STR);
     $query->bindValue(':password_utilisateur', $password, PDO::PARAM_STR);
-    $query->bindValue(':ID_Entreprise', $ID_Entreprise, PDO::PARAM_INT);
-    $query->bindValue(':valid_utilisateur', $valid, PDO::PARAM_INT);
-    
-    var_dump($db);
+    $query->bindValue(':ID_Entreprise', $enterprise, PDO::PARAM_INT);
+
+    $query->execute();
 } catch (PDOException $e) {
-    $errors[''] = $e->getMessage();
+    echo $e->getMessage();
     die();
 }
 }
