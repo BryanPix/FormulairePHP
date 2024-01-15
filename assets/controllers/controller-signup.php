@@ -1,5 +1,5 @@
 <?php
-require_once '../../views/config.php';
+require_once '../views/config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") { // Si le bouton post a été cliquer effectue la verification
 
