@@ -1,9 +1,10 @@
 <?php
+// config
 require_once '../../config.php';
+// models
+require_once '../../models/Utilisateur.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") { // Si le bouton post a été cliquer effectue la verification
-
-    
+if ($_SERVER["REQUEST_METHOD"] == "POST") { // Si le bouton post à été cliquer effectue la verification
 
     // Contrôle du nom
     if (empty($_POST['nom'])) {
@@ -49,10 +50,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Si le bouton post a été cliquer
     }
 
     // Contrôle des CGU
-    if (!isset($_POST['cgu'])){
+    if (!isset($_POST['cgu'])) {
         $errors["cgu"] = "Veuillez accepter les conditions générales d'utilisation pour continuer.";
     }
-    var_dump($errors);	
     // Si aucune erreur, traiter les données et soumettre le formulaire
     if (empty($errors)) {
 
@@ -60,39 +60,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Si le bouton post a été cliquer
         $cguAccepted = isset($_POST["cgu"]) && $_POST["cgu"] === "on";
 
         if ($cguAccepted) {
-
-            $name = $_POST['nom'];
-            $prenom = $_POST['prenom'];
-            $birthdate = $_POST['birthdate'];
-            $mail = $_POST['mail'];
-            $password = $_POST['password'];
-            $confirmPass = $_POST['confirmPass'];
-            $errors = array();
-            $cgu = $_POST["cgu"];
-
-            echo '<div class="divFormulaire">';
-            echo "<h2>Inscription réussie</h2>";
-            echo "<h3>Données soumises :</h3>";
-            echo "<p>Nom : " . $name . "</p>";
-            echo "<p>Prénom : " . $prenom . "</p>";
-            echo "<p>Date de naissance : " . $birthdate . "</p>";
-            echo "<p>Email : " . $mail . "</p>";
-            echo "<p>Mot de passe reçu</p>";
-            echo '<p><strong><em>Vous pouvez maintenant vous connecter.</em></strong></p>';
-            echo '<button class="button" style="background-color: #28a745; color: #fff; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer;">Connexion</button>';
-            echo '</div>';
-        }
+            $redirectSignin = '../../views/view-signin.php';
+            header("Location: " .  $redirectSignin );
+            exit;
     } else {
         // Si les CGU ne sont pas acceptées, ajoute une erreur spécifique pour les CGU
         $errors["spanCgu"] = "Veuillez accepter les conditions générales d'utilisation pour continuer.";
     }
+    // Seulement si il n'y a pas d'erreur
+    if (empty($errors)) {
+
+        $name = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $pseudo = $_POST['pseudo'];
+        $birthdate = $_POST['birthdate'];
+        $mail = $_POST['mail'];
+        $password = $_POST['password'];
+        $enterprise = $_POST['entreprise'];
+
+        Utilisateur::create($name, $prenom, $pseudo, $birthdate, $mail, $password, $enterprise);
+    }
+}
 }
 
 // AFFICHER le formulaire si il est vide et ne l'affiche pas quand il est soumis
 if ($_SERVER["REQUEST_METHOD"] != "POST" || !empty($errors)) {
     include_once '../../views/view-signup.php';
-}
-// Seulement si il n'y a pas d'erreur
-if(empty($errors)) {
-
-}
+} 

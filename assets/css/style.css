@@ -42,7 +42,9 @@ label {
   padding: 1rem 7rem 2rem 1rem;
   box-shadow: 1px 8px 14px 7px rgba(0, 0, 0, 0.15);
 }
-.inputField .selectField {
+
+.inputField, 
+.selectField {
   border: 2px solid;
   border-radius: 4px;
   font-size: 1rem;
