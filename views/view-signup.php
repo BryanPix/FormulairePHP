@@ -10,9 +10,11 @@ include 'templates/head.php';
 
 <body>
     <h1>Inscription</h1>
+   <?php if ($showform){ ?>
 
+    
     <div class="divFormulaire">
-        <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" novalidate>
+        <form method="POST" action="" novalidate>
             <label for="nom">Nom<sup class="star">*</sup> :
                 <input class="inputField" type="text" id="nom" name="nom" size="20" placeholder="Ex:Doe" value="<?php if (!empty($name)) {
                     echo $name;
@@ -85,24 +87,28 @@ include 'templates/head.php';
                     <?= isset($errors["spanCgu"]) ? $errors["spanCgu"] : "" ?>
                 </span>
             </label>
-            <input class="btn-signup" type="submit" value="S'enregistrer">
+            <input class="btn-signup" type="submit" id="btn-check" value="S'enregistrer">
 
             <p><sup class="redInput">*</sup> Requis</p>
         </form>
-
-
-        <!-- créer une condition if else pour afficher deux div differentes au cas ou le bouton s'enregistrer est cliqué -->
-        <?php
-
-        ?>
-
     </div>
+            <?php } else { ?>
+
+            
+    <!-- A faire apparaitre quand le formulaire est soumit -->
+    <div id="divMessage">
+        <h2>Connexion</h2>
+        <h3>Bienvenue</h3>
+        <p>  Vous pouvez à present vous connecter.</p>
+      <a href="../controllers/controller-signin.php"><button>Connexion</button></a>  
+    </div>
+         <?php   } ?>
     <footer>
         <?php
         include 'templates/footer.php';
         ?>
     </footer>
-    <script src="/assets/js/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>

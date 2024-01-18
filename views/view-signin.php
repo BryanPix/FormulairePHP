@@ -14,7 +14,6 @@ include 'templates/head.php';
 
     </div>
 
-
     <footer>
         <?php
         include 'templates/footer.php';

@@ -1,6 +1,5 @@
 <?php
 
-
 // Nous déclenchons nos vérifications uniquement lorsqu'un submit de type POST est détecté
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // tableau d'erreurs (stockage des erreurs)
@@ -30,3 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 }
+
+
+include_once '../../views/view-signin.php';
