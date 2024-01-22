@@ -1,4 +1,12 @@
 <?php
+session_start();
+// l'ordre est important car Utilisateur.php utilise des constantes venant de config.php 
+
+// config
+require_once '../../config.php';
+// models
+require_once '../../models/Utilisateur.php';
+
 
 // Nous déclenchons nos vérifications uniquement lorsqu'un submit de type POST est détecté
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -21,14 +29,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // je recupère toutes les infos via la méthode getInfos()
             $utilisateurInfos = Utilisateur::getInfos($_POST['mail']);
             // Utilisation de password_verify pour valider le mdp
-            if (password_verify($_POST['password'], $utilisateurInfos['mdp_participant'])) {
+            if (password_verify($_POST['password'], $utilisateurInfos['password_utilisateur'])) {
+                $_SESSION['user'] = $utilisateurInfos; 
                 header('Location: controller-home.php');
+
             } else {
                 $errors['connexion'] = 'Mauvais mdp';
             }
         }
     }
 }
-
 
 include_once '../../views/view-signin.php';

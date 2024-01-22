@@ -91,6 +91,7 @@ include 'templates/head.php';
 
             <p><sup class="redInput">*</sup> Requis</p>
         </form>
+        <span>Vous avez déjà un compte ? </span><a href="controller-signin.php">Connectez-vous !</a>
     </div>
             <?php } else { ?>
 

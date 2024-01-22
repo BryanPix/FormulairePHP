@@ -87,8 +87,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Si le bouton post à été clique
     }
 
 }
-
-// AFFICHER le formulaire si il est vide et ne l'affiche pas quand il est soumis
-if ($_SERVER["REQUEST_METHOD"] != "POST" || !empty($errors)) {
+// Affiche le formulaire si il est vide et ne l'affiche pas quand il est soumis
     include_once '../../views/view-signup.php';
-}

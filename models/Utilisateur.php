@@ -86,24 +86,24 @@ class Utilisateur
     /**
      * Methode permettant de récupérer les infos d'un utilisateur avec son mail comme paramètre
      * 
-     * @param string $email Adresse mail de l'utilisateur
+     * @param string $mail Adresse mail de l'utilisateur
      * 
      * @return array Tableau associatif contenant les infos de l'utilisateur
      */
-    public static function getInfos(string $email): array
+    public static function getInfos(string $mail): array
     {
         try {
             // Création d'un objet $db selon la classe PDO
             $db = new PDO("mysql:host=localhost;dbname=" . DBNAME, DBUSER, DBPASSWORD);
 
             // stockage de ma requete dans une variable
-            $sql = "SELECT * FROM `utilisateur` WHERE `mail_participant` = :mail";
+            $sql = "SELECT * FROM `utilisateur` WHERE `email_utilisateur` = :email_utilisateur";
 
             // je prepare ma requête pour éviter les injections SQL
             $query = $db->prepare($sql);
 
             // on relie les paramètres à nos marqueurs nominatifs à l'aide d'un bindValue
-            $query->bindValue(':mail', $email, PDO::PARAM_STR);
+            $query->bindValue(':email_utilisateur', $mail, PDO::PARAM_STR);
 
             // on execute la requête
             $query->execute();
