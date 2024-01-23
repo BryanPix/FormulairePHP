@@ -18,13 +18,15 @@ include 'templates/head.php';
             <span class="close-btn">X</span>
         </div>
     </div>
+    
     <!-- Main -->
-    <h1>Bienvenue!</h1>
+    <h1>GreenRide Transport</h1>
     <div class="divFormulaire">
     <?= $_SESSION['user']['nickname_utilisateur'] . '</br>'?>
-        <p>Vous etes sur le placeholder de la page home</p>
+        <p>Vous êtes sur le placeholder de la page home</p>
 
-        <a href="../controllers/controller-profile.php"><button class="btn-signup">profile</button></a>
+        <a href="../controllers/controller-profile.php"><button class="btn-signup">Profile</button></a>
+        <a href="../controllers/controller-trajet.php"><button class="btn-signup"> Ajout trajet</button></a>
         <a href="../controllers/controller-signout.php"><button class="btn-signup">Déconnexion</button></a>
     </div>
     <footer>
