@@ -8,6 +8,7 @@ include 'templates/head.php';
 ?>
 
 <body>
+    <!-- popup -->
     <div class="popup">
         <div class="popup-content text-dark">
             <h2 class="text-center">Bienvenue !</h2>
@@ -17,11 +18,14 @@ include 'templates/head.php';
             <span class="close-btn">X</span>
         </div>
     </div>
+    <!-- Main -->
     <h1>Bienvenue!</h1>
     <div class="divFormulaire">
-    <?= $_SESSION['user']['nickname_utilisateur'] ?>
+    <?= $_SESSION['user']['nickname_utilisateur'] . '</br>'?>
         <p>Vous etes sur le placeholder de la page home</p>
-        <a href="../controllers/controller-signin.php"><button class="btn-signup">Déconnexion</button></a>
+
+        <a href="../controllers/controller-profile.php"><button class="btn-signup">profile</button></a>
+        <a href="../controllers/controller-signout.php"><button class="btn-signup">Déconnexion</button></a>
     </div>
     <footer>
         <?php

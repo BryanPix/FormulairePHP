@@ -12,9 +12,9 @@ if(!isset($_SESSION['user'])){
 // l'ordre est important car Utilisateur.php utilise des constantes venant de config.php 
 
 // config
-require_once '../../config.php';
+require_once '../config.php';
 // models
-require_once '../../models/Utilisateur.php';
+require_once '../models/Utilisateur.php';
 
 // if(!isset($_SESSION["mail"])){
 //     header("Location : controller-signin.php");
@@ -22,5 +22,5 @@ require_once '../../models/Utilisateur.php';
 // Récupère le pseudo de l'utilisateur
 // $pseudo = isset($_SESSION['user']['user_pseudo']) ? ($_SESSION['user']['user_pseudo']) : "Pseudo non défini";
 
-include_once '../../views/view-home.php';
+include_once '../views/view-home.php';
 

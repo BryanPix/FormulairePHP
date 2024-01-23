@@ -3,9 +3,9 @@ session_start();
 // l'ordre est important car Utilisateur.php utilise des constantes venant de config.php 
 
 // config
-require_once '../../config.php';
+require_once '../config.php';
 // models
-require_once '../../models/Utilisateur.php';
+require_once '../models/Utilisateur.php';
 
 
 // Nous déclenchons nos vérifications uniquement lorsqu'un submit de type POST est détecté
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (empty($_POST['password'])) {
-        $errors['SpanPassword'] = 'Veuillez saisir votre mot de passe';
+        $errors['spanPassword'] = 'Veuillez saisir votre mot de passe';
     }
 
     if (empty($errors)) {
@@ -34,10 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 header('Location: controller-home.php');
 
             } else {
-                $errors['connexion'] = 'Mauvais mdp';
+                $errors['spanPassword'] = 'Mauvais mdp';
             }
         }
     }
 }
 
-include_once '../../views/view-signin.php';
+include_once '../views/view-signin.php';

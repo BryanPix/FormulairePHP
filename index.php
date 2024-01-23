@@ -1,4 +1,5 @@
 <?php
-$redirectController = 'assets/controllers/controller-signin.php'; //il faut qu'il point vers sign-in au lieu de sign-up
+
+$redirectController = '/controllers/controller-signin.php';
 header("Location: " . $redirectController);
 exit();
