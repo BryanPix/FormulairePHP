@@ -16,5 +16,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
   btnCancel.addEventListener("click", function () {
       popupConfirm.style.display = "none";
+      console.log("Refuser");
   });
+
+  window.onclick = function (event) {
+    if (event.target == popupConfirm) {
+      popupConfirm.style.display = "none";
+      console.log("non choisi");
+    }
+  };
 });

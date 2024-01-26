@@ -21,8 +21,8 @@ include 'templates/head.php';
                 <form id="deleteForm" action="../controllers/controller-historique.php" method="POST">
                     <input type="hidden" name="id_trajet" id="id_trajet" value="">
                     <button id="btn-accept" type="submit">Oui</button>
-                    <button id="btn-cancel">Non</button>
                 </form>
+                <button id="btn-cancel">Non</button>
             </div>
         </div>
 

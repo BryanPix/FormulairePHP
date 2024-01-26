@@ -32,14 +32,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Seulement si il n'y a pas d'erreur
         if (empty($errors)) {
 
-            $id_trajet = $_POST['id_trajet'];
             $date = $_POST['date_trajet'];
             $distance = $_POST["distance_trajet"];
             $travel = $_POST["traveltime_trajet"];
             $id_modetransport = $_POST["transport"];
             $id_utilisateur = $_SESSION['user']['id_utilisateur'];
 
-            Trajet::create($id_trajet ,$date, $distance, $travel, $id_modetransport, $id_utilisateur);
+            Trajet::create($date, $distance, $travel, $id_modetransport, $id_utilisateur);
         
     
 

@@ -3,7 +3,6 @@
 class Trajet
 {
     /**
-     * @param int $id_trajet ID du trajet de l'utilisateur
      * @param string $date date du trajet de l'utilisateur
      * @param string $distance distance du trajet de l'utilisateur
      * @param string $travel temps de trajet de l'utilisateur
@@ -13,7 +12,7 @@ class Trajet
      * @return void 
      
     */
-    public static function create(int $id_trajet, string $date, string $distance, string $travel, int $id_modetransport, int $id_utilisateur)
+    public static function create(string $date, string $distance, string $travel, int $id_modetransport, int $id_utilisateur)
     {
         // try and catch
         try {
@@ -21,12 +20,11 @@ class Trajet
             // Connextion à la bdd
             $db = new PDO("mysql:host=localhost;dbname=" . DBNAME, DBUSER, DBPASSWORD);
             // stockage de la requete dans une variable
-            $sql = "INSERT INTO `trajet` (`id_trajet`,`date_trajet`,`distance_trajet`,`traveltime_trajet`,`id_modedetransport`,`id_utilisateur`,`id_trajet`) VALUES(:id_trajet, :date_trajet, :distance_trajet, :traveltime_trajet, :id_modedetransport, :id_utilisateur )";
+            $sql = "INSERT INTO `trajet` (`date_trajet`,`distance_trajet`,`traveltime_trajet`,`id_modedetransport`,`id_utilisateur`) VALUES(:date_trajet, :distance_trajet, :traveltime_trajet, :id_modedetransport, :id_utilisateur)";
 
             $query = $db->prepare($sql);
 
             // on relie les valeurs à nos marqueurs à l'aide d'un bindValue
-            $query->bindValue(':id_trajet', $id_trajet, PDO::PARAM_INT);
             $query->bindValue(':date_trajet', $date, PDO::PARAM_STR);
             $query->bindValue(':distance_trajet', $distance, PDO::PARAM_STR);
             $query->bindValue(':traveltime_trajet', $travel, PDO::PARAM_STR);
