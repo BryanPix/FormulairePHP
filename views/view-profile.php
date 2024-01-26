@@ -18,9 +18,10 @@ include 'templates/head.php';
     <?= $_SESSION['user']['firstname_utilisateur'] . '</br>'?>
     <?= $_SESSION['user']['birthdate_utilisateur'] . '</br>'?>
     <?= $_SESSION['user']['email_utilisateur'] . '</br>'?>
-        <p>Vous etes sur le placeholder de la page home</p>
+        <p>Vous êtes sur le placeholder de la page home</p>
         <a href="../controllers/controller-home.php"><button class="btn-signup">Retour Home</button></a>
     </div>
+
     <footer>
         <?php
         include 'templates/footer.php';

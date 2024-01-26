@@ -1,4 +1,5 @@
 <?php 
+// l'ordre est important car Utilisateur.php utilise des constantes venant de config.php 
 
 // config
 require_once '../config.php';

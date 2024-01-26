@@ -20,7 +20,7 @@ include 'templates/head.php';
     </div>
     
     <!-- Main -->
-    <h1>GreenRide Transport</h1>
+    <h1>GreenRide</h1>
     <div class="divFormulaire">
     <?= $_SESSION['user']['nickname_utilisateur'] . '</br>'?>
         <p>Vous êtes sur le placeholder de la page home</p>

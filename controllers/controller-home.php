@@ -16,11 +16,7 @@ require_once '../config.php';
 // models
 require_once '../models/Utilisateur.php';
 
-// if(!isset($_SESSION["mail"])){
-//     header("Location : controller-signin.php");
-// }
-// Récupère le pseudo de l'utilisateur
-// $pseudo = isset($_SESSION['user']['user_pseudo']) ? ($_SESSION['user']['user_pseudo']) : "Pseudo non défini";
+
 
 include_once '../views/view-home.php';
 

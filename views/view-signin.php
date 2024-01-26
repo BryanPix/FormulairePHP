@@ -26,7 +26,6 @@ include 'templates/head.php';
             <input class="inputField" type="password" id="password" name="password" size="20" required>
             <span class="redInput spanPassword">
                 <?= isset($errors["spanPassword"]) ? $errors["spanPassword"] : "" ?>
-
             </span>
         </label>
         <input class="btn-signup" type="submit" id="btn-check" value="Se Connecter">
