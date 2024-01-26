@@ -14,7 +14,7 @@ include 'templates/head.php';
     <!-- Main -->
     <h1>Historique</h1>
     <div class="divFormulaire">
-        <!-- Popup confirmation dialog (outside the loop) -->
+        <!-- Popup confirmation suppression -->
         <div id="popupConfirm" class="popup-confirm">
             <div class="popup-content">
                 <p>Voulez-vous vraiment supprimer ce trajet?</p>
@@ -51,9 +51,11 @@ include 'templates/head.php';
                         <td>
                             <?= $value['Type_modedetransport'] ?>
                         </td>
-                        <!-- Add unique identifier to each row or delete button -->
-                        <td><button class="btn-delete" data-row-id="<?= $value['id_trajet'] ?>"><i
-                                    class="fa-solid fa-trash-can"></i></button></td>
+                        <td>
+                            <button class="btn-delete" data-row-id="<?= $value['id_trajet'] ?>">
+                            <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
                     </tr>
                 <?php } ?>
             </tbody>
