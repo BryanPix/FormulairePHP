@@ -43,7 +43,7 @@ include 'templates/head.php';
                             <?= $value['date_FR'] ?>
                         </td>
                         <td>
-                            <?= $value['distance_trajet'] . 'kms' ?>
+                            <?= $value['distance_trajet'] . ' km' ?>
                         </td>
                         <td>
                             <?= $value['traveltime_trajet'] ?>
