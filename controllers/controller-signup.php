@@ -7,7 +7,13 @@ require_once '../config.php';
 require_once '../models/Utilisateur.php';
 $showform = true;
 if ($_SERVER["REQUEST_METHOD"] == "POST") { // Si le bouton post à été cliquer effectue la verification
-
+    
+    // Contrôle de l'image
+    // if (empty($_POST['nom'])) {
+    //     $errors["spanNom"] = "Le champ Nom ne peut pas être vide";
+    // } elseif (!preg_match("/^[a-zA-ZÀ-ÿ -]*$/", $_POST["nom"])) {
+    //     $errors["spanNom"] = "Seules les lettres, les espaces et les tirets sont autorisés dans le champ Nom";
+    // }
     // Contrôle du nom
     if (empty($_POST['nom'])) {
         $errors["spanNom"] = "Le champ Nom ne peut pas être vide";

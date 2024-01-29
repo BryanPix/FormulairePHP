@@ -21,7 +21,8 @@ include 'templates/head.php';
                 </span>
             </label>
             <label for="traveltime_trajet"> Temps de trajet (en minutes):
-                <input class="inputField" type="time" id="traveltime_trajet" name="traveltime_trajet" size="20" required>
+                <input class="inputField" type="time" id="traveltime_trajet" name="traveltime_trajet" size="20"
+                    required>
                 <span class="redInput spanTempsTrajet">
                     <?= isset($errors["spanTempsTrajet"]) ? $errors["spanTempsTrajet"] : "" ?>
                 </span>
@@ -33,14 +34,17 @@ include 'templates/head.php';
                 </span>
             </label>
             <label for="transport"> Mode de transport :
-                <select name="transport" id="transport">
+                <select name="transport" id="transport" onchange="toggleCustomInput()">
                     <option value="">--Please choose an option--</option>
                     <option value="1">Vélo</option>
                     <option value="2">Marche à pied</option>
                     <option value="3">Skate</option>
                     <option value="4">Trotinette</option>
                     <option value="5">Roller</option>
+                    <option value="other">Other</option>
                 </select>
+                <input type="text" name="custom_input" id="custom_input" style="display: none;" placeholder="Enter your custom choice">
+
                 <span class="redInput spanModeTransport">
                     <?= isset($errors["spanModeTransport"]) ? $errors["spanModeTransport"] : "" ?>
                 </span>
@@ -55,6 +59,7 @@ include 'templates/head.php';
         include 'templates/footer.php';
         ?>
     </footer>
+    <script src="../assets/js/view-trajet.js"></script>
 </body>
 
 </html>

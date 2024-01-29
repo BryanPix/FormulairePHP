@@ -67,7 +67,7 @@ class Trajet
             die();
         }
     }
-    public static function deleteTrajet(string $id_trajet)
+    public static function deleteTrajet(int $id_trajet)
     {
         try {
             $db = new PDO("mysql:host=localhost;dbname=" . DBNAME, DBUSER, DBPASSWORD);
@@ -82,4 +82,3 @@ class Trajet
         }
     }
 }
-
