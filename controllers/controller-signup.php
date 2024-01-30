@@ -5,6 +5,7 @@
 require_once '../config.php';
 // model
 require_once '../models/Utilisateur.php';
+require_once '../models/entreprise.php';
 
 $showform = true;
 $errors = [];
@@ -29,8 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         if (empty($errors)) {
-            var_dump($_FILES);
-            var_dump($_POST);
 
             $name = $_POST['nom'];
             $prenom = $_POST['prenom'];

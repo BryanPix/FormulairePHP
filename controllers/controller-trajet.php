@@ -6,11 +6,12 @@ session_start();
 require_once '../config.php';
 // models
 require_once '../models/trajet.php';
+require_once '../models/transport.php';
 
+$errors = [];
 // Nous déclenchons nos vérifications uniquement lorsqu'un submit de type POST est détecté
 if ($_SERVER["REQUEST_METHOD"] == "POST") { 
     // tableau d'erreurs (stockage des erreurs)
-    $errors = [];
 
     // Contrôle de la date du trajet
     if (empty($_POST['date_trajet'])) {
@@ -31,15 +32,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Seulement si il n'y a pas d'erreur
         if (empty($errors)) {
-
+            
             $date = $_POST['date_trajet'];
             $distance = $_POST["distance_trajet"];
             $travel = $_POST["traveltime_trajet"];
             $id_modetransport = $_POST["transport"];
             $id_utilisateur = $_SESSION['user']['id_utilisateur'];
 
-            Trajet::create($date, $distance, $travel, $id_modetransport, $id_utilisateur);
-        
+            Trajet::create($date, $distance, $travel, $id_modetransport, $id_utilisateur );
+            header('Location: controller-historique.php');
     
 
         }

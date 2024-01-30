@@ -17,7 +17,7 @@ include 'templates/head.php';
         <!-- Popup confirmation suppression -->
         <div id="popupConfirm" class="popup-confirm">
             <div class="popup-content">
-                <p>Voulez-vous vraiment supprimer ce trajet?</p>
+                <p id="deleteText"></p>
                 <form id="deleteForm" action="../controllers/controller-historique.php" method="POST">
                     <input type="hidden" name="id_trajet" id="id_trajet" value="">
                     <button id="btn-accept" type="submit">Oui</button>
@@ -52,8 +52,10 @@ include 'templates/head.php';
                             <?= $value['Type_modedetransport'] ?>
                         </td>
                         <td>
-                            <button class="btn-delete" data-row-id="<?= $value['id_trajet'] ?>">
-                            <i class="fa-solid fa-trash-can"></i>
+                            <button class="btn-delete" data-row-id="<?= $value['id_trajet'] ?>" 
+                                    data-row-date="<?= $value['date_FR'] ?>" 
+                                    data-row-distance="<?= $value['distance_trajet'] . ' km' ?>">
+                                <i class="fa-solid fa-trash-can"></i>
                             </button>
                         </td>
                     </tr>
@@ -61,6 +63,7 @@ include 'templates/head.php';
             </tbody>
         </table>
         <a href="../controllers/controller-home.php"><button class="btn-signup">Retour Home</button></a>
+        <a href="../controllers/controller-trajet.php"><button class="btn-signup">Ajouter un trajet</button></a>
     </div>
     <footer>
         <?php

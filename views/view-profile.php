@@ -30,6 +30,9 @@ include 'templates/head.php';
         <a href="../controllers/controller-home.php"><button class="btn-signup">Retour Home</button></a>
     </div>
 
+
+    <!-- SERT A MODIFIER LES INFORMATIONS -->
+
     <!-- <div class="divFormulaire">
         <form method="POST" action="" novalidate>
 

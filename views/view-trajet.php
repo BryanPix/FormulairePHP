@@ -34,13 +34,13 @@ include 'templates/head.php';
                 </span>
             </label>
             <label for="transport"> Mode de transport :
-                <select name="transport" id="transport" onchange="toggleCustomInput()">
-                    <option value="">--Please choose an option--</option>
-                    <option value="1">Vélo</option>
-                    <option value="2">Marche à pied</option>
-                    <option value="3">Skate</option>
-                    <option value="4">Trotinette</option>
-                    <option value="5">Roller</option>
+                <select name="transport" id="transport">
+                    <option value="" selected disabled>--Please choose an option--</option>
+                    <?php foreach (Transport::getAllTransport() as $transport) { ?>
+                            <option value="<?= $transport['id_modedetransport'] ?>" <?= isset($_POST["transport"]) && $_POST["transport"] == $transport['id_modedetransport'] ? 'selected' : "" ?>>
+                                <?= $transport['Type_modedetransport'] ?>
+                            </option>
+                        <?php } ?>
 
                 </select>
 

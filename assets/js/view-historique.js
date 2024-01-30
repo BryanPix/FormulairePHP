@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", function() {
           idTrajetInput.value = rowId;
           
           popupConfirm.style.display = "block";
+          deleteText.innerHTML = "<b>Supprimer ce trajet ?</b> </br>" ;
+          deleteText.innerHTML += `${button.getAttribute("data-row-distance")}</br>`;
+          deleteText.innerHTML += `${button.getAttribute("data-row-date")}`;
       });
   });
 

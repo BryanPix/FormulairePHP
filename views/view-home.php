@@ -26,6 +26,7 @@ include 'templates/head.php';
         <p>Vous êtes sur le placeholder de la page home</p>
 
         <a href="../controllers/controller-profile.php"><button class="btn-signup">Profile</button></a>
+        <a href="../controllers/controller-historique.php"><button class="btn-signup">Historique</button></a>
         <a href="../controllers/controller-trajet.php"><button class="btn-signup"> Ajout trajet</button></a>
         <a href="../controllers/controller-signout.php"><button class="btn-signup">Déconnexion</button></a>
     </div>
@@ -34,7 +35,7 @@ include 'templates/head.php';
         include 'templates/footer.php';
         ?>
     </footer>
-    <script src="../../assets/js/view-home.js"></script>
+    <script src="../assets/js/view-home.js"></script>
 
 </body>
 
