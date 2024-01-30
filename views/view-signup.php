@@ -14,7 +14,10 @@ include 'templates/head.php';
 
     
     <div class="divFormulaire">
-        <form method="POST" action="" novalidate>
+        <form method="POST" action="" enctype="multipart/form-data" novalidate>
+            <label for="userImage">Image :
+                <input type="file" name="userImage" id="userImage" accept="image/*" />
+            </label>
             <label for="nom">Nom<sup class="star">*</sup> :
                 <input class="inputField" type="text" id="nom" name="nom" size="20" placeholder="Ex:Doe" value="<?php if (!empty($name)) {
                     echo $name;

@@ -13,7 +13,7 @@ include 'templates/head.php';
 
     <h1>Bienvenue!</h1>
     <div class="divFormulaire">
-        <?= $_SESSION['user']['Image_utilisateur'] ?>
+        <?= '<img src="' . $_SESSION['user']['Image_utilisateur'] . '" alt="Image de profile">' ?>
         </br>
         <?= $_SESSION['user']['nickname_utilisateur'] ?>
         </br>
@@ -25,17 +25,14 @@ include 'templates/head.php';
         </br>
         <?= $_SESSION['user']['email_utilisateur'] ?>
 
-        <p>Vous êtes sur le placeholder de la page home</p>
+        <p>Vous êtes sur le placeholder de la page profile</p>
         <button class="btn-signup">Modifier</button>
         <a href="../controllers/controller-home.php"><button class="btn-signup">Retour Home</button></a>
     </div>
 
-    <div class="divFormulaire">
+    <!-- <div class="divFormulaire">
         <form method="POST" action="" novalidate>
 
-            <label>
-                <input type="file" name="myImage" accept="image/png, image/gif, image/jpeg" />
-            </label>
             <label for="nickname"></label>
             <input type="text"></input>
 
@@ -53,7 +50,7 @@ include 'templates/head.php';
 
         </form>
 
-    </div>
+    </div> -->
     <footer>
         <?php
         include 'templates/footer.php';

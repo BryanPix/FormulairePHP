@@ -3,6 +3,7 @@
 class Utilisateur
 {
     /**
+     * @param string $userImage Image de l'utilisateur
      * @param string $name Nom de l'utilisateur
      * @param string $prenom Prénom de l'utilisateur
      * @param string $pseudo Pseudo de l'utilisateur
@@ -10,11 +11,11 @@ class Utilisateur
      * @param string $mail Adresse mail de l'utilsateur
      * @param string $password Mot de passe de l'utilisateur
      * @param string $enterprise ID de l'entreprise de l'utilisateur
-     *
+     * 
      * @return void 
      
     */
-    public static function create(string $name, string $prenom, string $pseudo, string $birthdate, string $mail, string $password, string $enterprise)
+    public static function create(string $userImage, string $name, string $prenom, string $pseudo, string $birthdate, string $mail, string $password, string $enterprise)
     {
         // try and catch
         try {
@@ -22,11 +23,12 @@ class Utilisateur
             // Connextion à la bdd
             $db = new PDO("mysql:host=localhost;dbname=" . DBNAME, DBUSER, DBPASSWORD);
             // stockage de la requete dans une variable
-            $sql = "INSERT INTO `Utilisateur` (`lastname_utilisateur`,`firstname_utilisateur`,`nickname_utilisateur`,`birthdate_utilisateur`,`email_utilisateur`,`password_utilisateur`, `ID_Entreprise`) VALUES(:lastname_utilisateur, :firstname_utilisateur, :nickname_utilisateur, :birthdate_utilisateur, :email_utilisateur, :password_utilisateur, :ID_Entreprise)";
+            $sql = "INSERT INTO `Utilisateur` (`Image_utilisateur`, `lastname_utilisateur`,`firstname_utilisateur`,`nickname_utilisateur`,`birthdate_utilisateur`,`email_utilisateur`,`password_utilisateur`, `ID_Entreprise`) VALUES(:Image_utilisateur, :lastname_utilisateur, :firstname_utilisateur, :nickname_utilisateur, :birthdate_utilisateur, :email_utilisateur, :password_utilisateur, :ID_Entreprise)";
 
             $query = $db->prepare($sql);
 
             // on relie les valeurs à nos marqueurs à l'aide d'un bindValue
+            $query->bindValue(':Image_utilisateur', $userImage, PDO::PARAM_STR);
             $query->bindValue(':lastname_utilisateur', htmlspecialchars($name), PDO::PARAM_STR);
             $query->bindValue(':firstname_utilisateur', htmlspecialchars($prenom), PDO::PARAM_STR);
             $query->bindValue(':nickname_utilisateur', htmlspecialchars($pseudo), PDO::PARAM_STR);

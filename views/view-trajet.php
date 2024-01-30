@@ -41,9 +41,8 @@ include 'templates/head.php';
                     <option value="3">Skate</option>
                     <option value="4">Trotinette</option>
                     <option value="5">Roller</option>
-                    <option value="other">Other</option>
+
                 </select>
-                <input type="text" name="custom_input" id="custom_input" style="display: none;" placeholder="Enter your custom choice">
 
                 <span class="redInput spanModeTransport">
                     <?= isset($errors["spanModeTransport"]) ? $errors["spanModeTransport"] : "" ?>
