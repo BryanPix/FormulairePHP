@@ -1,8 +1,126 @@
-body{
-  font-family: sans-serif;
-  background-color: #1d3557;
- 
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #2b4f81;
+  color: white;
+  margin: 2rem;
 }
+
 .redInput {
-  color: red;
+  color: #e63946;
+  margin: 2rem 0;
 }
+
+.inputField {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #e63946;
+  width: 90%;
+  color: white;
+  outline: 0;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+.inputField ::-moz-placeholder {
+  text-align: left;
+}
+.inputField ::placeholder {
+  text-align: left;
+}
+
+.labelSignup {
+  font-size: 0.9rem;
+}
+
+.selectField {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
+  background-color: #2b4f81;
+  color: white;
+}
+
+.labelSignin {
+  margin: 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+.btn-signup {
+  width: 90%;
+  background-color: #e63946;
+  border: none;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+
+.btn-return:link, .btn-return:visited, .btn-return:hover, .btn-return:active {
+  color: white;
+  text-decoration: none;
+}
+
+.requis {
+  padding-top: 2rem;
+}
+
+.cguRedirection {
+  font-size: 12px;
+  margin-left: 2.3rem;
+}
+.cguRedirection ~ a, .cguRedirection a:link, .cguRedirection a:visited, .cguRedirection a:hover, .cguRedirection a:active {
+  color: #e63946;
+  text-decoration: none;
+}
+
+.cguCheckbox {
+  position: relative;
+  top: 27px;
+}
+
+input[type=checkbox] {
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: #e63946;
+  cursor: pointer;
+}
+
+label {
+  font-weight: 700;
+}
+
+.labelUnderline {
+  -webkit-text-decoration: underline 1px;
+          text-decoration: underline 1px;
+  text-underline-offset: 4px;
+}
+
+.spanDirection, .spanDirectionSignup {
+  position: relative;
+  top: 6rem;
+  padding-bottom: 7rem;
+  font-size: 1rem;
+}
+.spanDirection ~ a, .spanDirection a:link, .spanDirection a:visited, .spanDirection a:hover, .spanDirection a:active, .spanDirectionSignup ~ a, .spanDirectionSignup a:link, .spanDirectionSignup a:visited, .spanDirectionSignup a:hover, .spanDirectionSignup a:active {
+  color: #e63946;
+  text-decoration: none;
+}
+
+.fa-arrow-left {
+  float: right;
+}
+
+.divNavigation {
+  position: fixed;
+  bottom: 0;
+  height: 20vh;
+  border-radius: 0.5rem;
+  width: 100%;
+  margin: -31px;
+  padding: 0;
+  background-color: #e63946;
+}/*# sourceMappingURL=style.css.map */

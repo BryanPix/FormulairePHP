@@ -20,7 +20,7 @@ include 'templates/head.php';
                     <?= isset($errors["spanDateTrajet"]) ? $errors["spanDateTrajet"] : "" ?>
                 </span>
             </label>
-            <label for="traveltime_trajet"> Temps de trajet (en minutes):
+            <label for="traveltime_trajet"> Temps de trajet (en heures):
                 <input class="inputField" type="time" id="traveltime_trajet" name="traveltime_trajet" size="20"
                     required>
                 <span class="redInput spanTempsTrajet">
@@ -34,7 +34,7 @@ include 'templates/head.php';
                 </span>
             </label>
             <label for="transport"> Mode de transport :
-                <select name="transport" id="transport">
+                <select name="transport" class="selectField" id="transport">
                     <option value="" selected disabled>--Please choose an option--</option>
                     <?php foreach (Transport::getAllTransport() as $transport) { ?>
                             <option value="<?= $transport['id_modedetransport'] ?>" <?= isset($_POST["transport"]) && $_POST["transport"] == $transport['id_modedetransport'] ? 'selected' : "" ?>>

@@ -25,6 +25,7 @@ include 'templates/head.php';
     <?= $_SESSION['user']['nickname_utilisateur'] . '</br>'?>
         <p>Vous êtes sur le placeholder de la page home</p>
 
+
         <a href="../controllers/controller-profile.php"><button class="btn-signup">Profile</button></a>
         <a href="../controllers/controller-historique.php"><button class="btn-signup">Historique</button></a>
         <a href="../controllers/controller-trajet.php"><button class="btn-signup"> Ajout trajet</button></a>

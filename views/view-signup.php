@@ -9,25 +9,27 @@ include 'templates/head.php';
 ?>
 
 <body>
-    <h1>Inscription</h1>
     <?php if ($showform) { ?>
+        <h1>Inscription</h1>
 
 
         <div class="divFormulaire">
             <form method="POST" action="" enctype="multipart/form-data" novalidate>
-                <label for="userImage">Image :
+                <!-- <label class="labelSignup" for="userImage">Image :
                     <input type="file" name="userImage" id="userImage" accept="image/*" />
-                </label>
-                <label for="nom">Nom<sup class="star">*</sup> :
-                    <input class="inputField" type="text" id="nom" name="nom" size="20" placeholder="Ex:Doe" value="<?php if (!empty($name)) {
+                </label> -->
+                <label class="labelSignup" for="nom">
+                    <p class="labelUnderline">Nom<sup class="redInput">* </sup>:</p>
+                    <input class="inputField" type="text" id="nom" name="nom" size="20" placeholder="Doe" value="<?php if (!empty($name)) {
                         echo $name;
                     } ?>" required>
                     <span class="redInput spanNom">
                         <?= isset($errors["spanNom"]) ? $errors["spanNom"] : "" ?>
                     </span>
                 </label>
-                <label for="prenom">Prénom<sup class="star">*</sup> :
-                    <input class="inputField" type="text" id="prenom" name="prenom" size="20" placeholder="Ex:John" value="<?php if (!empty($prenom)) {
+                <label class="labelSignup" for="prenom">
+                    <p class="labelUnderline">Prénom<sup class="redInput">* </sup> :</p>
+                    <input class="inputField" type="text" id="prenom" name="prenom" size="20" placeholder="John" value="<?php if (!empty($prenom)) {
                         echo $prenom;
 
                     } ?>" required>
@@ -35,7 +37,8 @@ include 'templates/head.php';
                         <?= isset($errors["spanPrenom"]) ? $errors["spanPrenom"] : "" ?>
                     </span>
                 </label>
-                <label for="pseudo">Pseudo<sup class="star">*</sup> :
+                <label class="labelSignup" for="pseudo">
+                    <p class="labelUnderline">Pseudo<sup class="redInput">* </sup> :</p>
                     <input class="inputField" type="text" id="pseudo" name="pseudo" size="20" placeholder="Baobab" value="<?php if (!empty($pseudo)) {
                         echo $pseudo;
                     } ?>" required>
@@ -43,8 +46,9 @@ include 'templates/head.php';
                         <?= isset($errors["spanPseudo"]) ? $errors["spanPseudo"] : "" ?>
                     </span>
                 </label>
-                <label for="entreprise">Entreprise<sup class="star">*</sup> :
-                    <select name="entreprise" id="entreprise" class="selectField">
+                <label class="labelSignup" for="entreprise">
+                    <p class="labelUnderline">Entreprise<sup class="redInput">*</sup> :</p>
+                    <select class="selectField" name="entreprise" id="entreprise">
                         <option value="" selected disabled>-- Veuillez choisir une option --</option>
                         <?php foreach (Entreprise::getAllEntreprise() as $entreprise) { ?>
                             <option value="<?= $entreprise['ID_Entreprise'] ?>" <?= isset($_POST["entreprise"]) && $_POST["entreprise"] == $entreprise['ID_Entreprise'] ? 'selected' : "" ?>>
@@ -52,8 +56,12 @@ include 'templates/head.php';
                             </option>
                         <?php } ?>
                     </select>
+                    <div class="redInput spanEntreprise">
+                        <?= isset($errors["spanEntreprise"]) ? $errors["spanEntreprise"] : "" ?>
+                    </div>
                 </label>
-                <label for="birthdate">Date de naissance<sup class="star">*</sup> :
+                <label class="labelSignup" for="birthdate">
+                    <p class="labelUnderline">Date de naissance<sup class="redInput">* </sup> :</p>
                     <input class="inputField" type="date" id="birthdate" name="birthdate" value="<?php if (!empty($birthdate)) {
                         echo $birthdate;
                     } ?>" required>
@@ -61,8 +69,9 @@ include 'templates/head.php';
                         <?= isset($errors["spanBirthdate"]) ? $errors["spanBirthdate"] : "" ?>
                     </span>
                 </label>
-                <label for="mail">Adresse mail<sup class="star">*</sup> :
-                    <input class="inputField" type="text" id="mail" name="mail" size="25" placeholder="Ex:JohnDoe@gmail.com"
+                <label class="labelSignup" for="mail">
+                    <p class="labelUnderline">Adresse mail<sup class="redInput">* </sup> :</p>
+                    <input class="inputField" type="text" id="mail" name="mail" size="25" placeholder="JohnDoe@gmail.com"
                         value="<?php if (!empty($mail)) {
                             echo $mail;
                         } ?>" required>
@@ -70,49 +79,52 @@ include 'templates/head.php';
                         <?= isset($errors["spanEmail"]) ? $errors["spanEmail"] : "" ?>
                     </span>
                 </label>
-                <label for="password">Mot de passe<sup class="star">*</sup> :
+                <label class="labelSignup" for="password">
+                    <p class="labelUnderline">Mot de passe<sup class="redInput">* </sup> :</p>
                     <input class="inputField" type="password" id="password" name="password" size="20" required>
                     <span class="redInput spanPassword">
                         <?= isset($errors["spanPassword"]) ? $errors["spanPassword"] : "" ?>
 
                     </span>
                 </label>
-                <label for="confirmPass" class="inputConfirm">Confirmation du mot de passe<sup class="star">*</sup> :
+                <label class="labelSignup" for="confirmPass" class="inputConfirm">
+                    <p class="labelUnderline">Confirmation du mot de passe<sup class="redInput">* </sup> :</p>
                     <input class="inputField" type="password" id="confirmPass" name="confirmPass" size="20" required>
                     <span class="redInput spanConfirm">
                         <?= isset($errors["spanConfirm"]) ? $errors["spanConfirm"] : "" ?>
 
                     </span>
                 </label>
-                <label for="cgu">
-                    <input type="checkbox" id="cgu" name="cgu" required>
-                    <span>Pour vous inscrire, veuillez accepter les CGU !</span>
+                <label class="labelSignup" for="cgu">
+                    <input type="checkbox" class="cguCheckbox" id="cgu" name="cgu" required>
+                    <p class="cguRedirection">Pour vous inscrire, veuillez accepter les <a
+                            href="../views/view-cgu.php">CGU</a><sup class="redInput">* </sup> !</p>
                     <span class="redInput spanCgu">
                         <?= isset($errors["spanCgu"]) ? $errors["spanCgu"] : "" ?>
                     </span>
                 </label>
+                <p class="requis"><sup class="redInput">*</sup> Requis</p>
                 <input class="btn-signup" type="submit" id="btn-check" value="S'enregistrer">
 
-                <p><sup class="redInput">*</sup> Requis</p>
             </form>
-            <span>Vous avez déjà un compte ? </span><a href="controller-signin.php">Connectez-vous !</a>
+            <span class="spanDirectionSignup">Vous avez déjà un compte ? <a href="controller-signin.php">Connectez-vous
+                    !</a></span>
         </div>
     <?php } else { ?>
 
 
         <!-- A faire apparaitre quand le formulaire est soumit -->
         <div id="divMessage">
-            <h2>Connexion</h2>
-            <h3>Bienvenue</h3>
+            <h1>Inscription reussie</h1>
             <p> Vous pouvez à present vous connecter.</p>
-            <a href="../controllers/controller-signin.php"><button>Connexion</button></a>
+            <a href="../controllers/controller-signin.php"><button class="btn-signup">Connexion</button></a>
         </div>
     <?php } ?>
-    <footer>
+    <!-- <footer>
         <?php
         include 'templates/footer.php';
         ?>
-    </footer>
+    </footer> -->
     <script src="../js/script.js"></script>
 </body>
 

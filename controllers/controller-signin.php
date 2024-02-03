@@ -13,13 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // tableau d'erreurs (stockage des erreurs)
     $errors = [];
 
-    if (empty($_POST['mail'])) {
-        $errors['spanEmail'] = 'Veuillez saisir votre Email';
-    }
-
-    if (empty($_POST['password'])) {
-        $errors['spanPassword'] = 'Veuillez saisir votre mot de passe';
-    }
+     
 
     if (empty($errors)) {
         // ici commence les tests

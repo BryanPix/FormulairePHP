@@ -3,8 +3,6 @@
 class Entreprise
 {
 
-
-
     public static function getAllEntreprise(): array
     {
         try {
