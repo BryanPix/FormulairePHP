@@ -1,118 +1,149 @@
-$primary : #2b4f81;
-$secondary : #e63946;
+$primary: #2b4f81;
+$secondary: #e63946;
 
-body{
-    font-family: 'Poppins', sans-serif; 
-    background-color: $primary;
-    color: white;
-    margin: 2rem;
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: $primary;
+  color: white;
+  margin: 2rem;
 }
 .redInput {
-    color: $secondary;
-    margin: 2rem 0;
+  color: $secondary;
+  margin: 2rem 0;
 }
 .inputField {
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid $secondary;
-    width: 90%;
-    color: white;
-    outline: 0;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    ::placeholder{
-        text-align: left;
-    }
-}
-.labelSignup{
-    font-size: 0.9rem;
-    
-}
-
-
-.selectField{
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem 0;
-    background-color: $primary;
-    color: white;
-}
-.labelSignin{
-    margin: 1rem;
-    font-size: 1.1rem;
-    font-weight: 500;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid $secondary;
+  width: 90%;
+  color: white;
+  outline: 0;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  ::placeholder {
     text-align: left;
+  }
 }
-.btn-signup{
-    width: 90%;
-    background-color: $secondary;
-    border: none;
-    border-radius: 0.5rem;
-    margin-top: 2rem;
-    color: white;
-    font-weight: 600;
-    padding: 0.5rem 0;
-    cursor: pointer;
+.labelSignup {
+  font-size: 0.9rem;
+}
+.selectField {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
+  background-color: $primary;
+  color: white;
+}
+.labelSignin {
+  margin: 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: left;
+}
+.btn-signup {
+  width: 90%;
+  background-color: $secondary;
+  border: none;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  cursor: pointer;
 }
 .btn-return {
-    &:link,
-    &:visited,
-    &:hover,
-    &:active {
-        color: white;
-        text-decoration: none;
-    }
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: white;
+    text-decoration: none;
+  }
 }
-.requis{
-    padding-top: 2rem;
+.requis {
+  padding-top: 2rem;
 }
-.cguRedirection{
-    font-size: 12px;
-    margin-left: 2.3rem;
-    ~ a, a:link, a:visited, a:hover, a:active {
-        color: $secondary;
-        text-decoration: none;
-      }
+.cguRedirection {
+  font-size: 12px;
+  margin-left: 2.3rem;
+  ~ a,
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: $secondary;
+    text-decoration: none;
+  }
 }
-.cguCheckbox{
-    position: relative;
-    top: 27px;
+.cguCheckbox {
+  position: relative;
+  top: 27px;
 }
 input[type="checkbox"] {
-    display: block;
-    width: 1.2rem;
-    height: 1.2rem;
-    accent-color: $secondary;
-    cursor:pointer;
-
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: $secondary;
+  cursor: pointer;
+}
+label {
+  font-weight: 700;
+}
+.labelUnderline {
+  text-decoration: underline 1px;
+  text-underline-offset: 4px;
+}
+.spanDirection,
+.spanDirectionSignup {
+  position: relative;
+  top: 6rem;
+  padding-bottom: 7rem;
+  font-size: 1rem;
+  ~ a,
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: $secondary;
+    text-decoration: none;
   }
-label{
-    font-weight: 700;
 }
-.labelUnderline{
-    text-decoration: underline 1px;
-    text-underline-offset: 4px;
-}
-.spanDirection, .spanDirectionSignup{
-    position: relative;
-    top: 6rem;
-    padding-bottom: 7rem;
-    font-size: 1rem;
-    ~ a, a:link, a:visited, a:hover, a:active {
-            color: $secondary;
-            text-decoration: none;
-          }
-}
-.fa-arrow-left{
+.fa-arrow-left {
   float: right;
 }
-.divNavigation{
-    position: fixed;
-    bottom: 0;
-    height: 20vh;
-    border-radius: 0.5rem;
-    width: 100%;
-    margin: -31px;
-    padding: 0;
-    background-color: $secondary;
+.divNavigation {
+  position: fixed;
+  bottom: 0;
+  height: 13vh;
+  border-radius: 0.3rem;
+  width: 100%;
+  margin: -31px;
+  padding: 0;
+  background-color: $secondary;
+  display: flex;
+  justify-content: space-between;
+}
+.btn-nav {
+  display: flex;
+  gap: 35px;
+  margin-left: 2rem;
+}
+.btnNavigation {
+  width: 100%;
+  background-color: $secondary;
+  margin-top: 1rem;
+  color: white;
+  padding: 0.5rem 0;
+  border: transparent;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  i {
+      margin-bottom: 5px;
+  }
+}
+.no-underline {
+    text-decoration: none;
 }

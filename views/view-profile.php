@@ -11,21 +11,26 @@ include 'templates/head.php';
 
     <!-- Main -->
 
-    <h1>Bienvenue!</h1>
+    <h1>Section profile</h1>
     <div class="divFormulaire">
-        <?= '<img src="' . $_SESSION['user']['Image_utilisateur'] . '" alt="Image de profile">' ?>
+        <h2>Vos informations</h2>
+        <?= '<span class="labelUnderline"><b>Image de profile</b></span>: <img src="' . $_SESSION['user']['Image_utilisateur'] . '" alt="Image de profile">' ?>
         </br>
-        <?= $_SESSION['user']['nickname_utilisateur'] ?>
         </br>
-        <?= $_SESSION['user']['lastname_utilisateur'] ?>
+        <?= '<span class="labelUnderline"><b>Pseudo</b></span>: ' . $_SESSION['user']['nickname_utilisateur'] . ' ' ?>
         </br>
-        <?= $_SESSION['user']['firstname_utilisateur'] ?>
         </br>
-        <?= $_SESSION['user']['birthdate_utilisateur'] ?>
+        <?= '<span class="labelUnderline"><b>Nom de famille</b></span>: ' . $_SESSION['user']['lastname_utilisateur'] . ' '?>
         </br>
-        <?= $_SESSION['user']['email_utilisateur'] ?>
+        </br>
+        <?= '<span class="labelUnderline"><b>Prénom</b></span>: ' . $_SESSION['user']['firstname_utilisateur'] . ' '?>
+        </br>
+        </br>
+        <?= '<span class="labelUnderline"><b>Date de naissance</b></span>: ' . $_SESSION['user']['birthdate_utilisateur'] . ' '?>
+        </br>
+        </br>
+        <?= '<span class="labelUnderline"><b>Email</b></span>: ' . $_SESSION['user']['email_utilisateur'] . ' '?>
 
-        <p>Vous êtes sur le placeholder de la page profile</p>
         <button class="btn-signup">Modifier</button>
         <a href="../controllers/controller-home.php"><button class="btn-signup">Retour Home</button></a>
     </div>

@@ -71,7 +71,11 @@ body {
   font-size: 12px;
   margin-left: 2.3rem;
 }
-.cguRedirection ~ a, .cguRedirection a:link, .cguRedirection a:visited, .cguRedirection a:hover, .cguRedirection a:active {
+.cguRedirection ~ a,
+.cguRedirection a:link,
+.cguRedirection a:visited,
+.cguRedirection a:hover,
+.cguRedirection a:active {
   color: #e63946;
   text-decoration: none;
 }
@@ -99,13 +103,23 @@ label {
   text-underline-offset: 4px;
 }
 
-.spanDirection, .spanDirectionSignup {
+.spanDirection,
+.spanDirectionSignup {
   position: relative;
   top: 6rem;
   padding-bottom: 7rem;
   font-size: 1rem;
 }
-.spanDirection ~ a, .spanDirection a:link, .spanDirection a:visited, .spanDirection a:hover, .spanDirection a:active, .spanDirectionSignup ~ a, .spanDirectionSignup a:link, .spanDirectionSignup a:visited, .spanDirectionSignup a:hover, .spanDirectionSignup a:active {
+.spanDirection ~ a,
+.spanDirection a:link,
+.spanDirection a:visited,
+.spanDirection a:hover,
+.spanDirection a:active,
+.spanDirectionSignup ~ a,
+.spanDirectionSignup a:link,
+.spanDirectionSignup a:visited,
+.spanDirectionSignup a:hover,
+.spanDirectionSignup a:active {
   color: #e63946;
   text-decoration: none;
 }
@@ -117,10 +131,39 @@ label {
 .divNavigation {
   position: fixed;
   bottom: 0;
-  height: 20vh;
-  border-radius: 0.5rem;
+  height: 13vh;
+  border-radius: 0.3rem;
   width: 100%;
   margin: -31px;
   padding: 0;
   background-color: #e63946;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-nav {
+  display: flex;
+  gap: 35px;
+  margin-left: 2rem;
+}
+
+.btnNavigation {
+  width: 100%;
+  background-color: #e63946;
+  margin-top: 1rem;
+  color: white;
+  padding: 0.5rem 0;
+  border: transparent;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.btnNavigation i {
+  margin-bottom: 5px;
+}
+
+.no-underline {
+  text-decoration: none;
 }/*# sourceMappingURL=style.css.map */

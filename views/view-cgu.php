@@ -44,7 +44,7 @@ include 'templates/head.php';
         </p>
     </section>
     <p>
-        Si vous ne souhaitez pas accepeter ces conditions, veuillez ne plus utiliser cette application.
+        Si vous ne souhaitez pas accepter ces conditions, veuillez ne plus utiliser cette application.
     </p>
 </div>
 

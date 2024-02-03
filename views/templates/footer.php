@@ -1,16 +1,29 @@
 <div class="divNavigation">
-    <div>
-    <a href="../controllers/controller-profile.php"><button class="btn-signup"><i class="fa-solid fa-user">Profile</i></button></a>
+    <div class="btn-nav">
+        <a href="../controllers/controller-profile.php" class="no-underline">
+            <button class="btnNavigation">
+                <i class="fa-solid fa-user"></i>
+                <span>Profile</span>
+            </button>
+        </a>
+        <a href="../controllers/controller-historique.php" class="no-underline">
+            <button class="btnNavigation">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>Historique</span>
+            </button>
+        </a>
+        <a href="../controllers/controller-trajet.php" class="no-underline">
+            <button class="btnNavigation">
+                <i class="fa-solid fa-plus"></i>
+                <span>Ajouter trajet</span>
+            </button>
+        </a>
+        <a href="../controllers/controller-signout.php" class="no-underline">
+            <button class="btnNavigation">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Deconnexion</span>
+            </button>
+        </a>
     </div>
-    <div>
-    <i class="fa-solid fa-clock-rotate-left">Historique</i>
-    </div>
-    <div>
-    <i class="fa-solid fa-plus"></i>
-    </div>
-    <div>
-    <i class="fa-solid fa-right-from-bracket"></i>
-    </div>
-
-    
 </div>
+
