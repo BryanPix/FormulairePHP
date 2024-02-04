@@ -27,6 +27,42 @@ body {
   text-align: left;
 }
 
+.inputModifier {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #e63946;
+  width: 40%;
+  color: white;
+  outline: 0;
+  font-size: 1.1rem;
+}
+
+.returnHome {
+  margin-bottom: 2rem;
+}
+
+.btn-modifier {
+  margin-bottom: 9rem;
+  width: 40%;
+  background-color: #e63946;
+  border: none;
+  border-radius: 0.5rem;
+  margin-top: 3rem;
+  margin-left: 1rem;
+  color: white;
+  font-weight: 600;
+  padding: 0.7rem 0.4rem;
+  cursor: pointer;
+}
+.btn-modifier ~ a,
+.btn-modifier a:link,
+.btn-modifier a:visited,
+.btn-modifier a:hover,
+.btn-modifier a:active {
+  color: #eee;
+  text-decoration: none;
+}
+
 .labelSignup {
   font-size: 0.9rem;
 }
@@ -207,7 +243,54 @@ td {
 }
 
 .popup-confirm {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 20px;
+}
+
+.btnYes {
+  position: relative;
+  top: 0;
+  left: 0;
+  transform: translate(-50%);
+  width: 20%;
+  background-color: #e63946;
+  border: none;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+  margin-left: 0.5rem;
+  color: white;
+  font-weight: 600;
+  padding: 0.7rem 0.4rem;
+}
+
+.btnNo {
+  position: relative;
+  top: -28px;
+  left: 20%;
+  width: 20%;
+  background-color: rgb(43, 79, 129);
+  border: none;
+  border-radius: 0.5rem;
+  margin-top: -1rem;
+  margin-left: 1rem;
+  color: white;
+  font-weight: 600;
+  padding: 0.7rem 0.4rem;
 }
 
 .btn-secondary {
@@ -235,4 +318,20 @@ td {
   background-color: rgba(43, 79, 129, 0.2);
   color: #eee;
   border: none;
+}
+
+.divModifier {
+  display: none;
+}
+
+.divHome {
+  position: absolute;
+  bottom: 75%;
+  left: 40%;
+  width: 70px;
+  border-radius: 50%;
+}
+
+.btnRounded {
+  border-radius: 60%;
 }/*# sourceMappingURL=style.css.map */

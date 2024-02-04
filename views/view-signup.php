@@ -14,10 +14,8 @@ include 'templates/head.php';
 
 
         <div class="divFormulaire">
-            <form method="POST" action="" enctype="multipart/form-data" novalidate>
-                <!-- <label class="labelSignup" for="userImage">Image :
-                    <input type="file" name="userImage" id="userImage" accept="image/*" />
-                </label> -->
+            <form method="POST" action="" enctype="multipart/form-data" autocomplete="off" novalidate>
+                
                 <label class="labelSignup" for="nom">
                     <p class="labelUnderline">Nom<sup class="redInput">* </sup>:</p>
                     <input class="inputField" type="text" id="nom" name="nom" size="20" placeholder="Doe" value="<?php if (!empty($name)) {

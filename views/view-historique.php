@@ -20,9 +20,9 @@ include 'templates/head.php';
                 <p id="deleteText"></p>
                 <form id="deleteForm" action="../controllers/controller-historique.php" method="POST">
                     <input type="hidden" name="id_trajet" id="id_trajet" value="">
-                    <button id="btn-accept" type="submit">Oui</button>
+                    <button id="btn-accept" class="btnYes" type="submit">Oui</button>
                 </form>
-                <button id="btn-cancel">Non</button>
+                <button id="btn-cancel" class="btnNo" >Non</button>
             </div>
         </div>
 

@@ -1,4 +1,12 @@
 <div class="divNavigation">
+    <div class="divHome">
+    <a href="../controllers/controller-home.php" class="no-underline">
+            <button class="btnNavigation btnRounded">
+                <i class="fa-solid fa-user"></i>
+                <span>Home</span>
+            </button>
+        </a>
+    </div>
     <div class="btn-nav">
         <a href="../controllers/controller-profile.php" class="no-underline">
             <button class="btnNavigation">

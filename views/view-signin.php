@@ -11,7 +11,7 @@ include 'templates/head.php';
 <body>
     <h1>Connexion</h1>
     <div class="divFormulaire">
-        <form method="POST" action="" novalidate>
+        <form method="POST" action="" autocomplete="off" novalidate>
 
             <label for="mail" class="labelSignin">
                 <p class="labelUnderline">Adresse mail :</p>

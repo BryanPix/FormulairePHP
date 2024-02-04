@@ -14,21 +14,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($_POST['nom'])) {
         $errors['spanNom'] = 'Veuillez saisir votre nom';
+    } elseif(!empty($_POST['nom'])) {
+        $name = $_POST['nom'];
     }
     if (empty($_POST['prenom'])) {
         $errors['spanPrenom'] = 'Veuillez saisir votre prénom';
+    } elseif(!empty($_POST['prenom'])) {
+        $prenom = $_POST['prenom'];
     }
     if (empty($_POST['pseudo'])) {
         $errors['spanPseudo'] = 'Veuillez saisir votre pseudo';
+    } elseif(!empty($_POST['pseudo'])) {
+        $pseudo = $_POST['pseudo'];
     }
     if (empty($_POST['entreprise'])) {
         $errors['spanEntreprise'] = 'Veuillez saisir votre entreprise';
+    }  elseif(!empty($_POST['nom'])) {
+        $name = $_POST['nom'];
     }
     if (empty($_POST['birthdate'])) {
         $errors['spanBirthdate'] = 'Veuillez saisir votre date de naissance';
+    }  elseif(!empty($_POST['birthdate'])) {
+        $birthdate = $_POST['birthdate'];
     }
     if (empty($_POST['mail'])) {
         $errors['spanEmail'] = 'Veuillez saisir votre Email';
+    }  elseif(!empty($_POST['mail'])) {
+        $mail = $_POST['mail'];
     }
     if (empty($_POST['password'])) {
         $errors['spanPassword'] = 'Veuillez saisir votre mot de passe';
@@ -36,7 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST['confirmPass'])) {
         $errors['spanConfirm'] = 'Votre mot de passe doit être similaire';
     }
-
 
 
 

@@ -12,13 +12,15 @@ require_once '../models/Utilisateur.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // tableau d'erreurs (stockage des erreurs)
     $errors = [];
-
      
 
     if (empty($errors)) {
         // ici commence les tests
         if (!Utilisateur::checkMailExists($_POST['mail'])) {
             $errors['spanEmail'] = 'Utilisateur Inconnu';
+        } elseif (Utilisateur::checkMailExists($_POST['mail']) && empty($_POST['password'])) {
+            $mail = $_POST['mail'];
+            $errors['spanPassword'] = 'Veuillez saisir votre mot de passe';
         } else {
             // je recupère toutes les infos via la méthode getInfos()
             $utilisateurInfos = Utilisateur::getInfos($_POST['mail']);
@@ -28,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 header('Location: controller-home.php');
 
             } else {
+                $mail = $_POST['mail'];
                 $errors['spanPassword'] = 'Mauvais mdp';
             }
         }
