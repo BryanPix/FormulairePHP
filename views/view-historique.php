@@ -26,17 +26,19 @@ include 'templates/head.php';
             </div>
         </div>
 
-        <table>
+
+        
+        <table >
             <thead>
                 <tr>
                     <th>Date</th>
                     <th>Distance</th>
                     <th>Durée</th>
                     <th>Moyen de transport</th>
-                    <th>Action</th>
+                    <th>Supprimer</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="tb-content" >
                 <?php foreach ($trajetData as $value) { ?>
                     <tr>
                         <td>
@@ -52,18 +54,18 @@ include 'templates/head.php';
                             <?= $value['Type_modedetransport'] ?>
                         </td>
                         <td>
-                            <button class="btn-delete" data-row-id="<?= $value['id_trajet'] ?>" 
+                            <button class="btn-delete trashbin" data-row-id="<?= $value['id_trajet'] ?>" 
                                     data-row-date="<?= $value['date_FR'] ?>" 
                                     data-row-distance="<?= $value['distance_trajet'] . ' km' ?>">
-                                <i class="fa-solid fa-trash-can"></i>
+                                <i class="fa-solid fa-trash-can trashbin"></i>
                             </button>
                         </td>
                     </tr>
                 <?php } ?>
             </tbody>
         </table>
-        <a href="../controllers/controller-home.php"><button class="btn-signup">Retour Home</button></a>
-        <a href="../controllers/controller-trajet.php"><button class="btn-signup">Ajouter un trajet</button></a>
+        <button class="btn-secondary"><a href="../controllers/controller-home.php">Retour Home</a></button>
+        <button class="btn-secondary"><a href="../controllers/controller-trajet.php">Ajouter un trajet</a></button>
     </div>
     <footer>
         <?php

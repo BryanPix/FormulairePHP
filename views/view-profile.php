@@ -17,22 +17,22 @@ include 'templates/head.php';
         <?= '<span class="labelUnderline"><b>Image de profile</b></span>: <img src="' . $_SESSION['user']['Image_utilisateur'] . '" alt="Image de profile">' ?>
         </br>
         </br>
+        <?= '<span class="labelUnderline"><b>Nom de famille</b></span>: ' . $_SESSION['user']['lastname_utilisateur'] . ' ' ?>
+        </br>
+        </br>
+        <?= '<span class="labelUnderline"><b>Prénom</b></span>: ' . $_SESSION['user']['firstname_utilisateur'] . ' ' ?>
+        </br>
+        </br>
         <?= '<span class="labelUnderline"><b>Pseudo</b></span>: ' . $_SESSION['user']['nickname_utilisateur'] . ' ' ?>
         </br>
         </br>
-        <?= '<span class="labelUnderline"><b>Nom de famille</b></span>: ' . $_SESSION['user']['lastname_utilisateur'] . ' '?>
+        <?= '<span class="labelUnderline"><b>Date de naissance</b></span>: ' . $_SESSION['user']['birthdate_FR'] . ' ' ?>
         </br>
         </br>
-        <?= '<span class="labelUnderline"><b>Prénom</b></span>: ' . $_SESSION['user']['firstname_utilisateur'] . ' '?>
-        </br>
-        </br>
-        <?= '<span class="labelUnderline"><b>Date de naissance</b></span>: ' . $_SESSION['user']['birthdate_utilisateur'] . ' '?>
-        </br>
-        </br>
-        <?= '<span class="labelUnderline"><b>Email</b></span>: ' . $_SESSION['user']['email_utilisateur'] . ' '?>
+        <?= '<span class="labelUnderline"><b>Email</b></span>: ' . $_SESSION['user']['email_utilisateur'] . ' ' ?>
 
-        <button class="btn-signup">Modifier</button>
-        <a href="../controllers/controller-home.php"><button class="btn-signup">Retour Home</button></a>
+        <button class="btn-secondary">Modifier</button>
+        <a href="../controllers/controller-home.php"><button class="btn-secondary">Retour Home</button></a>
     </div>
 
 

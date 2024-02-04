@@ -27,5 +27,5 @@ document.addEventListener("DOMContentLoaded", function() {
       popupConfirm.style.display = "none";
       console.log("non choisi");
     }
-  };
+  }; 
 });

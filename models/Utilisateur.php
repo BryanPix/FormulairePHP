@@ -97,7 +97,7 @@ class Utilisateur
             $db = new PDO("mysql:host=localhost;dbname=" . DBNAME, DBUSER, DBPASSWORD);
 
             // stockage de ma requete dans une variable
-            $sql = "SELECT * FROM `utilisateur` WHERE `email_utilisateur` = :email_utilisateur";
+            $sql = "SELECT *, DATE_FORMAT(`birthdate_utilisateur`, '%d/%m/%Y') AS birthdate_FR FROM `utilisateur` WHERE `email_utilisateur` = :email_utilisateur";
 
             // je prepare ma requête pour éviter les injections SQL
             $query = $db->prepare($sql);

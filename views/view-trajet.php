@@ -50,8 +50,8 @@ include 'templates/head.php';
             </label>
             <input class="btn-signup" type="submit" id="btn-check" value="Enregistrer">
         </form>
-        <a href="../controllers/controller-historique.php"><button class="btn-signup">Historique</button></a>
-        <a href="../controllers/controller-home.php"><button class="btn-signup">Retour Home</button></a>
+        <a href="../controllers/controller-historique.php"><button class="btn-secondary">Historique</button></a>
+        <a href="../controllers/controller-home.php"><button class="btn-secondary">Retour Home</button></a>
     </div>
     <footer>
         <?php

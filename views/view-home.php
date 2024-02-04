@@ -24,7 +24,7 @@ include 'templates/head.php';
     <div class="divFormulaire">
 
     <?= '<p>Bienvenue ' . $_SESSION['user']['firstname_utilisateur'] . ' ! </p>'?>
-        <p>Tu es sur le placeholder de la page home</p>
+        <p>Tu es sur la page home.</p>
         <p>Sur cette page Home, il t'est possible de :</p>
         <ul>
             <li><b>Naviguer</b> vers ton profile.</li>
