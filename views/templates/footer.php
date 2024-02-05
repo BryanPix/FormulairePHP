@@ -14,16 +14,16 @@
                 <span>Profil</span>
             </button>
         </a>
+        <a href="../controllers/controller-trajet.php" class="no-underline">
+            <button class="btnNavigation">
+                <i class="fa-solid fa-plus"></i>
+                <span>Trajet</span>
+            </button>
+        </a>
         <a href="../controllers/controller-historique.php" class="no-underline">
             <button class="btnNavigation">
                 <i class="fa-solid fa-clock-rotate-left"></i>
                 <span>Historique</span>
-            </button>
-        </a>
-        <a href="../controllers/controller-trajet.php" class="no-underline">
-            <button class="btnNavigation">
-                <i class="fa-solid fa-plus"></i>
-                <span>Ajouter trajet</span>
             </button>
         </a>
         <a href="../controllers/controller-signout.php" class="no-underline">

@@ -15,5 +15,9 @@ if(!isset($_SESSION['user'])){
     header('Location : controller-signin.php');
     exit();
 }
+// Appliquer une image par defaut en cas de non presence d'image
+if(isset($_SESSION['user']['Image_utilisateur']) && $_SESSION['user']['Image_utilisateur'] == 'NULL'){
+    $_SESSION['user']['Image_utilisateur'] = 'default.png';
+}
 
 include_once '../views/view-profile.php';

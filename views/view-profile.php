@@ -11,16 +11,16 @@ include 'templates/head.php';
 
     <!-- Main -->
 
-    <h1>Section profile</h1>
+    <h1>Section profil</h1>
     <div class="divFormulaire">
         <h2>Vos informations</h2>
 
         <div class="divInfos">
-            <?= '<span class="labelUnderline"><b>Image de profile</b></span>: <img src="' . $_SESSION['user']['Image_utilisateur'] . '" alt="Image de profile">' ?>
+            <span class="labelUnderline"><b>Image de profile</b></span>: <img class="imgProfile" src="../assets/img/<?= $_SESSION['user']['Image_utilisateur'] ?>" alt="Image de profil">
             </br></br>
-            <?= '<span class="labelUnderline"><b>Nom de famille</b></span>: ' . $_SESSION['user']['lastname_utilisateur'] . ' ' ?>
+            <span class="labelUnderline"><b>Nom de famille</b></span>: <?=  $_SESSION['user']['lastname_utilisateur'] ?>
             </br></br>
-            <?= '<span class="labelUnderline"><b>Prénom</b></span>: ' . $_SESSION['user']['firstname_utilisateur'] . ' ' ?>
+            <span class="labelUnderline"><b>Prénom</b></span>: <?= $_SESSION['user']['firstname_utilisateur'] ?>
             </br></br>
             <?= '<span class="labelUnderline"><b>Pseudo</b></span>: ' . $_SESSION['user']['nickname_utilisateur'] . ' ' ?>
             </br></br>
@@ -33,9 +33,9 @@ include 'templates/head.php';
                     Home</a></button>
         </div>
         <!-- SERT A MODIFIER LES INFORMATIONS -->
-
         <div class="divModifier">
             <form method="POST" action="" novalidate>
+                
                 <label class="labelSignup" for="userImage">Image :
                     <input type="file" name="userImage" id="userImage" accept="image/*" />
                 </label>
