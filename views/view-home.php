@@ -27,20 +27,20 @@ include 'templates/head.php';
         <p>Tu es sur la page home.</p>
         <p>Sur cette page Home, il t'est possible de :</p>
         <ul>
-            <li><b>Naviguer</b> vers ton profile.</li>
+            <li><b>Naviguer</b> vers ton profil.</li>
             <li><b>Naviguer</b> vers ton historique.</li>
             <li><b>Ajouter</b> un nouveau trajet.</li>
-            <li>Te <b>deconnecter</b>.</li>
+            <li>Te <b>déconnecter</b>.</li>
         </ul>
         <p>
-            Pour naviguer sur ce site, n'hesite pas à utiliser la barre de navigation qui se trouve en bas de page.
+            Pour naviguer sur ce site, n'hésite pas à utiliser la barre de navigation qui se trouve en bas de page.
         </p>
         <p>
             Ce site est plutôt vide pour le moment,
             <br>
-            Mais n'ayez crainte, il s'étoffera avec le temps.
+            Mais n'aie crainte, il s'étoffera avec le temps.
         </p>
-        <p>Amusez-vous bien !</p>
+        <p>Amuses-toi bien !</p>
     </div>
     <footer>
         <?php

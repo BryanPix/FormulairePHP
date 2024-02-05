@@ -121,6 +121,7 @@ class Utilisateur
 
 
     // A Effectuer !!! ce n'est pas complet
+    
     // public static function updateUtilisateur(string $date, string $distance, string $travel, int $id_modetransport, int $id_utilisateur)
     // {
     //     // try and catch

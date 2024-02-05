@@ -13,7 +13,7 @@ include 'templates/head.php';
 
     <!-- Main -->
     <h1>Historique</h1>
-    <div class="divFormulaire">
+    <div class="divHistorique">
         <!-- Popup confirmation suppression -->
         <div id="popupConfirm" class="popup-confirm">
             <div class="popup-content">

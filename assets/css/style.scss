@@ -61,7 +61,7 @@ body {
   font-size: 0.9rem;
 }
 .selectField {
-  border: none;
+  border: 1px solid #eee;
   border-radius: 0.5rem;
   padding: 0.5rem 0;
   background-color: $primary;
@@ -234,7 +234,13 @@ td{
   transform: translate(-50%,-50%);
   width: 100%;
   padding: 20px;
-
+}
+#deleteText{
+  border: 1px solid #eee;
+  padding: 22px 22px;
+  width: fit-content;
+  border-radius: 0.5rem;
+  margin-left: -1.2rem;
 }
 .btnYes {
   position: relative;
@@ -271,8 +277,7 @@ td{
   background-color: rgba(43,79,129,0.2);
   border: 0.5px solid #eee;
   border-radius: 0.5rem;
-  margin-top: 3rem;
-  margin-left: 1rem;
+  margin: 3rem 0 9rem 1rem;
   color: white;
   font-weight: 600;
   padding: 0.7rem 0.4rem;
@@ -304,4 +309,7 @@ td{
 .btnRounded{
   border-radius: 60%
 
+}
+.divHistorique{
+  height: 100rem;
 }

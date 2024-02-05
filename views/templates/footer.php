@@ -2,7 +2,7 @@
     <div class="divHome">
     <a href="../controllers/controller-home.php" class="no-underline">
             <button class="btnNavigation btnRounded">
-                <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-house"></i>
                 <span>Home</span>
             </button>
         </a>
@@ -11,7 +11,7 @@
         <a href="../controllers/controller-profile.php" class="no-underline">
             <button class="btnNavigation">
                 <i class="fa-solid fa-user"></i>
-                <span>Profile</span>
+                <span>Profil</span>
             </button>
         </a>
         <a href="../controllers/controller-historique.php" class="no-underline">
