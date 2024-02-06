@@ -73,6 +73,7 @@ body {
   padding: 0.5rem 0;
   background-color: #2b4f81;
   color: white;
+  text-align: center;
 }
 
 .labelSignin {
@@ -131,12 +132,6 @@ input[type=checkbox] {
 
 label {
   font-weight: 700;
-}
-
-.labelUnderline {
-  -webkit-text-decoration: underline 1px;
-          text-decoration: underline 1px;
-  text-underline-offset: 4px;
 }
 
 .spanDirection,
@@ -269,6 +264,7 @@ td {
   width: fit-content;
   border-radius: 0.5rem;
   margin-left: -1.2rem;
+  background-color: #e63946;
 }
 
 .btnYes {
@@ -351,4 +347,12 @@ td {
 .imgProfile {
   width: 30%;
   height: 30%;
+}
+
+.textarea {
+  background-color: #2b4f81;
+  color: white;
+  border: 2px solid #eee;
+  border-radius: 0.5rem;
+  font-size: 1rem;
 }/*# sourceMappingURL=style.css.map */

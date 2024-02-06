@@ -120,32 +120,47 @@ class Utilisateur
     }
 
 
-    // A Effectuer !!! ce n'est pas complet
+
+    /**
+     * Methode permettant de récupérer les infos d'un utilisateur avec son mail comme paramètre
+     * 
+     * @param string $imageUser Image de l'utilisateur
+     * @param string $name Nom de l'utilisateur
+     * @param string $prenom Prénom de l'utilisateur
+     * @param string $pseudo Pseudo de l'utilisateur
+     * @param string $birthdate Date de naissance de l'utilisateur
+     * @param string $mail Adresse mail de l'utilsateur
+     * @param string $description description de l'utilisateur
+     * 
+     * @return void
+     */
     
-    // public static function updateUtilisateur(string $date, string $distance, string $travel, int $id_modetransport, int $id_utilisateur)
-    // {
-    //     // try and catch
-    //     try {
-    //         // Création d'un objet $db selon la classe PDO 
-    //         // Connextion à la bdd
-    //         $db = new PDO("mysql:host=localhost;dbname=" . DBNAME, DBUSER, DBPASSWORD);
-    //         // stockage de la requete dans une variable
-    //         $sql = "UPDATE `trajet` SET colonne_1 = 'valeur 1', colonne_2 = 'valeur 2', colonne_3 = 'valeur 3' WHERE condition";
+    public static function updateUtilisateur(string $imageUser, string $name, string $prenom, string $pseudo, string $birthdate, string $mail, string $description)
+    {
+        // try and catch
+        try {
+            // Création d'un objet $db selon la classe PDO 
+            // Connextion à la bdd
+            $db = new PDO("mysql:host=localhost;dbname=" . DBNAME, DBUSER, DBPASSWORD);
+            // stockage de la requete dans une variable
+            $sql = "UPDATE `Utilisateur` SET `Image_utilisateur` = :Image_utilisateur, `lastname_utilisateur` = :lastname_utilisateur, `firstname_utilisateur` = :firstname_utilisateur, `nickname_utilisateur` = :nickname_utilisateur, `birthdate_utilisateur` = :birthdate_utilisateur, `email_utilisateur` = :email_utilisateur, `description_utilisateur` = :description_utilisateur WHERE `email_utilisateur` = :email_utilisateur";
+
+            $query = $db->prepare($sql);
     
-    //         $query = $db->prepare($sql);
+            // on relie les valeurs à nos marqueurs à l'aide d'un bindValue
+            $query->bindValue(':Image_utilisateur', $imageUser, PDO::PARAM_STR);
+            $query->bindValue(':lastname_utilisateur', $name, PDO::PARAM_STR);
+            $query->bindValue(':firstname_utilisateur', $prenom, PDO::PARAM_STR);
+            $query->bindValue(':nickname_utilisateur', $pseudo, PDO::PARAM_STR);
+            $query->bindValue(':birthdate_utilisateur', $birthdate, PDO::PARAM_STR);
+            $query->bindValue(':email_utilisateur', $mail, PDO::PARAM_STR);
+            $query->bindValue(':description_utilisateur', $description, PDO::PARAM_STR);
     
-    //         // on relie les valeurs à nos marqueurs à l'aide d'un bindValue
-    //         $query->bindValue(':date_trajet', $date, PDO::PARAM_STR);
-    //         $query->bindValue(':distance_trajet', $distance, PDO::PARAM_STR);
-    //         $query->bindValue(':traveltime_trajet', $travel, PDO::PARAM_STR);
-    //         $query->bindValue(':id_modedetransport', $id_modetransport, PDO::PARAM_INT);
-    //         $query->bindValue(':id_utilisateur', $id_utilisateur, PDO::PARAM_INT);
+            $query->execute();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            die();
+        }
     
-    //         $query->execute();
-    //     } catch (PDOException $e) {
-    //         echo $e->getMessage();
-    //         die();
-    //     }
-    
-    // }
+    }
 }
