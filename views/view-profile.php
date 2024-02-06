@@ -31,7 +31,7 @@ include 'templates/head.php';
             <span><b>Description</b></span>: <?= $_SESSION['user']['description_utilisateur'] ?>
             <br><br>
             <button class="btn-secondary" id="btn-modifier">Modifier</button>
-            <button class="btn-secondary returnHome"><a href="../controllers/controller-home.php">RetourHome</a></button>
+            <button class="btn-secondary returnHome"><a href="../controllers/controller-home.php">Retour Home</a></button>
         </div>
 
         <!-- SERT A MODIFIER LES INFORMATIONS --> 
@@ -60,11 +60,14 @@ include 'templates/head.php';
                 <label class="labelSignup" for="description">Description: </label>
                 <textarea name="description" class="textarea" type="textarea" maxlength="250" placeholder="J'aime le poulet" spellcheck="false" rows="4" cols="30"></textarea>
                 <button class="btn-modifier">Modifier</button>
-
+                
             </form>
         </div>
     </div>
-
+    <form method="POST" action="" novalidate>
+        <input type="hidden" name="delete">
+        <button class="btn-modifier">Supprimer compte</button>
+    </form>
 
     <footer>
         <?php

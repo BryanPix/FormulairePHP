@@ -163,4 +163,35 @@ class Utilisateur
         }
     
     }
+
+
+     /**
+     * Methode permettant de récupérer les infos d'un utilisateur avec son mail comme paramètre
+     * 
+     * @param int $idUser id de l'utilisateur
+     * 
+     * @return void
+     */
+    public static function deleteUtilisateur(int $idUser)
+    {
+        // try and catch
+        try {
+            // Création d'un objet $db selon la classe PDO 
+            // Connextion à la bdd
+            $db = new PDO("mysql:host=localhost;dbname=" . DBNAME, DBUSER, DBPASSWORD);
+            // stockage de la requete dans une variable
+            $sql = "DELETE FROM `utilisateur`
+            WHERE `id_utilisateur` = :id_utilisateur";
+
+            $query = $db->prepare($sql);
+            
+            // on relie les valeurs à nos marqueurs à l'aide d'un bindValue
+            $query->bindValue(':id_utilisateur', $idUser, PDO::PARAM_INT);
+    
+            $query->execute();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            die();
+        }
+    }
 }

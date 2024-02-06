@@ -1,7 +1,10 @@
 <?php
 session_start();
 // l'ordre est important car trajet.php utilise des constantes venant de config.php 
-
+if(!isset($_SESSION['user'])){
+    header('Location: controller-signin.php');
+    exit();
+}
 // config
 require_once '../config.php';
 // models

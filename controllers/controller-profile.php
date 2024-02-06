@@ -6,13 +6,10 @@ require_once '../config.php';
 // models
 require_once '../models/Utilisateur.php';
 
-// empêche l'accès à la page home si l'utilisateur n'est pas connecté et vérifie si la session n'est pas déjà active
-if (session_status() === PHP_SESSION_NONE) {
-    // Si non, démarrer la session
-    session_start();
-}
+session_start();
+
 if(!isset($_SESSION['user'])){
-    header('Location : controller-signin.php');
+    header('Location: controller-signin.php');
     exit();
 }
 
@@ -25,6 +22,11 @@ $showform = true;
 $errors = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if(isset($_POST['delete'])){
+        utilisateur::deleteUtilisateur($_SESSION['user']['id_utilisateur']);
+        header("Location: controller-signout.php");
+        exit();
+    }
 
         $imageUser = "default.png";
 
@@ -36,9 +38,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $birthdate = empty($_POST['birthdate'])? $_SESSION['user']['birthdate_utilisateur']: $_POST['birthdate'];
 
-        $mail = empty($_POST['mail'])? $_SESSION['user']['email_utilisateur'] : $_POST['mail'];
+        $mail = empty($_POST['mail']) ? $_SESSION['user']['email_utilisateur'] : $_POST['mail'];
 
-        $description = empty($_POST['description'])?  $_SESSION['user']['description_utilisateur'] : $_POST['description'];
+        $description = empty($_POST['description']) ? ($_SESSION['user']['description_utilisateur'] == NULL ? "" : $_SESSION['user']['description_utilisateur']) : $_POST['description'];
 
         Utilisateur::updateUtilisateur($imageUser, $name, $prenom, $pseudo, $birthdate, $mail, $description);
         $_SESSION['user'] = Utilisateur::getInfos($mail);
@@ -46,5 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header('Location: ' . $_SERVER['PHP_SELF']);
         exit();
 
-}
+    }
+
+
 include_once '../views/view-profile.php';
