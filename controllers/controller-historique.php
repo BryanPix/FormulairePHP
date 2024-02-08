@@ -1,10 +1,10 @@
 <?php
 
+session_start();
 if(!isset($_SESSION['user'])){
     header('Location: controller-signin.php');
     exit();
 }
-session_start();
 
 
 // l'ordre est important car trajet.php utilise des constantes venant de config.php 
