@@ -29,8 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if (empty($_POST['entreprise'])) {
         $errors['spanEntreprise'] = 'Veuillez saisir votre entreprise';
-    }  elseif(!empty($_POST['nom'])) {
-        $name = $_POST['nom'];
+    }  elseif(!empty($_POST['entreprise'])) {
+        $name = $_POST['entreprise'];
     }
     if (empty($_POST['birthdate'])) {
         $errors['spanBirthdate'] = 'Veuillez saisir votre date de naissance';
@@ -48,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST['confirmPass'])) {
         $errors['spanConfirm'] = 'Votre mot de passe doit être similaire';
     }
+    
 
 
 
