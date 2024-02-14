@@ -27,8 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: controller-signout.php");
         exit();
     }
-
-        $imageUser = "default.png";
+        $imageUser = empty($_POST['userImage']) ? $_SESSION['user']['Image_utilisateur'] : $_POST['userImage'];
 
         $name = empty($_POST['lastname']) ? $_SESSION['user']['lastname_utilisateur'] : $_POST['lastname'];
 
@@ -47,7 +46,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         header('Location: ' . $_SERVER['PHP_SELF']);
         exit();
-
     }
 
 
