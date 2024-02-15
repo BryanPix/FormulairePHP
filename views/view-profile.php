@@ -39,7 +39,8 @@ include 'templates/head.php';
             <form method="POST" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data" novalidate>
                 
                 <label class="labelSignup" for="userImage">Image : </label>
-                <input type="file" name="userImage" id="userImage" accept="image/*" />
+                <input type="file" name="userImage" id="userImage" accept="image/*" onchange="showPreview(event);"/>
+                <img id="file-ip-1-preview">
                 <br><br>
                 <label class="labelSignup" for="lastname">Nom de famille: </label>
                 <input name="lastname" class="inputModifier" type="text"></input>
