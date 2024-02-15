@@ -15,7 +15,7 @@ include 'templates/head.php';
 
         <div class="divFormulaire">
             <form method="POST" action="" enctype="multipart/form-data" autocomplete="off" novalidate>
-                
+
                 <label class="labelSignup" for="nom">
                     <p class="labelUnderline">Nom<sup class="redInput">* </sup>:</p>
                     <input class="inputField" type="text" id="nom" name="nom" size="20" placeholder="Doe" value="<?php if (!empty($name)) {
@@ -105,8 +105,7 @@ include 'templates/head.php';
                 <input class="btn-signup" type="submit" id="btn-check" value="S'enregistrer">
 
             </form>
-            <span class="spanDirectionSignup">Vous avez déjà un compte ? <a href="controller-signin.php">Connectez-vous
-                    !</a></span>
+            <span class="spanDirectionSignup">Vous avez déjà un compte ? <a href="controller-signin.php">Connectez-vous !</a></span>
         </div>
     <?php } else { ?>
 

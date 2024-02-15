@@ -1,3 +1,23 @@
+document.addEventListener("DOMContentLoaded", function() {
+  let popupConfirm = document.getElementById("popupConfirm");
+  let btnCancel = document.getElementById("btn-cancel");
+  let btnDelete = document.querySelector(".btn-delete");
+
+  btnDelete.addEventListener("click", function () {
+          popupConfirm.style.display = "block";
+          deleteText.innerHTML = "<b>Supprimer ce compte ? Cette action est irréversible !</b> </br>" ;
+  });
+  btnCancel.addEventListener("click", function () {
+      popupConfirm.style.display = "none";
+  });
+  window.onclick = function (event) {
+    if (event.target == popupConfirm) {
+      popupConfirm.style.display = "none";
+    }
+  }; 
+});
+
+
 let divModifier = document.querySelector(".divModifier");
 let btnModifier = document.getElementById("btn-modifier");
 

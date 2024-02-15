@@ -25,10 +25,8 @@ include 'templates/head.php';
                 <button id="btn-cancel" class="btnNo" >Non</button>
             </div>
         </div>
-
-
         
-        <table >
+        <table>
             <thead>
                 <tr>
                     <th>Date</th>
