@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (file_exists($target_file)) {
             $errors[] = "Désolé, cette image existe déjà.";
-            $uploadOk = 0;
+            unlink($target_file);
         }
 
         if ($_FILES["userImage"]["size"] > 500000) {
@@ -52,6 +52,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $errors[] = "Désolé, une erreur est survenue lors de l'upload.";
         }
+
+    } elseif(!isset($imageUser) || empty($imageUser)) {
+        $imageUser = "default.png";
     } else {
         $imageUser = isset($_POST['userImage']) && !empty($_POST['userImage']) ? $_POST['userImage'] : ($_SESSION['user']['Image_utilisateur'] ?? "default.png");
     }

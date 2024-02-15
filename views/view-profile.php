@@ -40,7 +40,7 @@ include 'templates/head.php';
                 
                 <label class="labelSignup" for="userImage">Image : </label>
                 <input type="file" name="userImage" id="userImage" accept="image/*" onchange="showPreview(event);"/>
-                <img id="file-ip-1-preview">
+                <img id="file-ip-1-preview" class="imgProfile">
                 <br><br>
                 <label class="labelSignup" for="lastname">Nom de famille: </label>
                 <input name="lastname" class="inputModifier" type="text"></input>
