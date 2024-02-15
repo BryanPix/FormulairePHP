@@ -13,12 +13,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // tableau d'erreurs (stockage des erreurs)
     $errors = [];
      
+    // Vérification du reCAPTCHA
+
+    $secret = '6LcljnQpAAAAAFQkWIiIGdK0rdYse2jDObRDaB0L';
+    $response = $_POST['g-recaptcha-response'];
+    $remoteip = $_SERVER['REMOTE_ADDR'];
+
+    $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response&remoteip=$remoteip";
+
+    $responseData = file_get_contents($url);
+    $dataRow = json_decode($responseData, true);
+
+    if ($dataRow['success'] == false && Utilisateur::checkMailExists($_POST['mail'])) {
+        $mail = $_POST['mail'];
+        $errors["spanCaptcha"] = 'reCaptcha non verifié';
+    }
 
     if (empty($errors)) {
         // ici commence les tests
         if (!Utilisateur::checkMailExists($_POST['mail'])) {
             $errors['spanEmail'] = 'Utilisateur Inconnu';
         } elseif (Utilisateur::checkMailExists($_POST['mail']) && empty($_POST['password'])) {
+            $mail = $_POST['mail'];
+            $errors['spanPassword'] = 'Veuillez saisir votre mot de passe';
+        } elseif(Utilisateur::checkMailExists($_POST['mail']) && $dataRow['success'] == true && empty($_POST['password'])){
             $mail = $_POST['mail'];
             $errors['spanPassword'] = 'Veuillez saisir votre mot de passe';
         } else {

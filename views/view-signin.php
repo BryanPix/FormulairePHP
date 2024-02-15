@@ -29,6 +29,12 @@ include 'templates/head.php';
                     <?= isset($errors["spanPassword"]) ? $errors["spanPassword"] : "" ?>
                 </span>
             </label>
+            <label for="captcha">
+                <div class="g-recaptcha" data-sitekey="6LcljnQpAAAAAI6xBuw5sBfKSQ7DJKLvP51PhdiI" name="captcha" id="captcha"></div>
+                <span class="redInput spanCaptcha">
+                <?= isset($errors["spanCaptcha"]) ? $errors["spanCaptcha"] : "" ?>
+                </span>
+            </label>
             <input class="btn-signup" type="submit" id="btn-check" value="Se Connecter">
         </form>
 
