@@ -143,7 +143,15 @@ class Utilisateur
             // Connextion à la bdd
             $db = new PDO("mysql:host=localhost;dbname=" . DBNAME, DBUSER, DBPASSWORD);
             // stockage de la requete dans une variable
-            $sql = "UPDATE `Utilisateur` SET `Image_utilisateur` = :Image_utilisateur, `lastname_utilisateur` = :lastname_utilisateur, `firstname_utilisateur` = :firstname_utilisateur, `nickname_utilisateur` = :nickname_utilisateur, `birthdate_utilisateur` = :birthdate_utilisateur, `email_utilisateur` = :email_utilisateur, `description_utilisateur` = :description_utilisateur WHERE `email_utilisateur` = :email_utilisateur";
+            $sql = "UPDATE `Utilisateur` 
+            SET `Image_utilisateur` = :Image_utilisateur,
+             `lastname_utilisateur` = :lastname_utilisateur,
+             `firstname_utilisateur` = :firstname_utilisateur, 
+             `nickname_utilisateur` = :nickname_utilisateur, 
+             `birthdate_utilisateur` = :birthdate_utilisateur, 
+             `email_utilisateur` = :email_utilisateur, 
+             `description_utilisateur` = :description_utilisateur 
+             WHERE `email_utilisateur` = :email_utilisateur";
 
             $query = $db->prepare($sql);
     

@@ -36,11 +36,10 @@ include 'templates/head.php';
 
         <!-- SERT A MODIFIER LES INFORMATIONS --> 
         <div class="divModifier">
-            <form method="POST" action="../models/upload.php" enctype="multipart/form-data" novalidate>
+            <form method="POST" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data" novalidate>
                 
                 <label class="labelSignup" for="userImage">Image : </label>
                 <input type="file" name="userImage" id="userImage" accept="image/*" />
-                <input type="submit" value="Upload Image" name="submit">
                 <br><br>
                 <label class="labelSignup" for="lastname">Nom de famille: </label>
                 <input name="lastname" class="inputModifier" type="text"></input>
