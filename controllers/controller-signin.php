@@ -29,8 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors["spanCaptcha"] = 'reCaptcha non verifié';
     }
 
+    // ici commence les tests
     if (empty($errors)) {
-        // ici commence les tests
+        
         if (!Utilisateur::checkMailExists($_POST['mail'])) {
             $errors['spanEmail'] = 'Utilisateur Inconnu';
         } elseif (Utilisateur::checkMailExists($_POST['mail']) && empty($_POST['password'])) {
