@@ -10,9 +10,39 @@ require_once '../models/Utilisateur.php';
 
 // Nous déclenchons nos vérifications uniquement lorsqu'un submit de type POST est détecté
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $user = Utilisateur::getInfos($_POST['mail']);
     // tableau d'erreurs (stockage des erreurs)
     $errors = [];
-     
+    if ($user['user_validate'] == 0) {
+        echo "Votre compte à été désactivé, veuillez contacter l'admin";
+    } else {
+        // ici commence les tests
+        if (empty($errors)) {
+
+            if (!Utilisateur::checkMailExists($_POST['mail'])) {
+                $errors['spanEmail'] = 'Utilisateur Inconnu';
+            } elseif (Utilisateur::checkMailExists($_POST['mail']) && empty($_POST['password'])) {
+                $mail = $_POST['mail'];
+                $errors['spanPassword'] = 'Veuillez saisir votre mot de passe';
+            } elseif (Utilisateur::checkMailExists($_POST['mail']) && $dataRow['success'] == true && empty($_POST['password'])) {
+                $mail = $_POST['mail'];
+                $errors['spanPassword'] = 'Veuillez saisir votre mot de passe';
+            } else {
+                // je recupère toutes les infos via la méthode getInfos()
+                $utilisateurInfos = Utilisateur::getInfos($_POST['mail']);
+                // Utilisation de password_verify pour valider le mdp
+                if (password_verify($_POST['password'], $utilisateurInfos['password_utilisateur'])) {
+                    $_SESSION['user'] = $utilisateurInfos;
+                    header('Location: controller-home.php');
+
+                } else {
+                    $mail = $_POST['mail'];
+                    $errors['spanPassword'] = 'Mauvais mdp';
+                }
+            }
+        }
+    }
+
     // Vérification du reCAPTCHA
 
     $secret = '6LcljnQpAAAAAFQkWIiIGdK0rdYse2jDObRDaB0L';
@@ -29,31 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors["spanCaptcha"] = 'reCaptcha non verifié';
     }
 
-    // ici commence les tests
-    if (empty($errors)) {
-        
-        if (!Utilisateur::checkMailExists($_POST['mail'])) {
-            $errors['spanEmail'] = 'Utilisateur Inconnu';
-        } elseif (Utilisateur::checkMailExists($_POST['mail']) && empty($_POST['password'])) {
-            $mail = $_POST['mail'];
-            $errors['spanPassword'] = 'Veuillez saisir votre mot de passe';
-        } elseif(Utilisateur::checkMailExists($_POST['mail']) && $dataRow['success'] == true && empty($_POST['password'])){
-            $mail = $_POST['mail'];
-            $errors['spanPassword'] = 'Veuillez saisir votre mot de passe';
-        } else {
-            // je recupère toutes les infos via la méthode getInfos()
-            $utilisateurInfos = Utilisateur::getInfos($_POST['mail']);
-            // Utilisation de password_verify pour valider le mdp
-            if (password_verify($_POST['password'], $utilisateurInfos['password_utilisateur'])) {
-                $_SESSION['user'] = $utilisateurInfos; 
-                header('Location: controller-home.php');
 
-            } else {
-                $mail = $_POST['mail'];
-                $errors['spanPassword'] = 'Mauvais mdp';
-            }
-        }
-    }
 }
 
 include_once '../views/view-signin.php';
